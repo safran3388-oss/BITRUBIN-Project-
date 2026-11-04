@@ -110,11 +110,11 @@
     document.documentElement.lang=lang;
     document.querySelectorAll("[data-en][data-de]").forEach(function(el){el.textContent=el.getAttribute("data-"+lang);});
     document.querySelectorAll("[data-lang]").forEach(function(btn){btn.setAttribute("aria-pressed",String(btn.getAttribute("data-lang")===lang));});
-    try{localStorage.setItem("bitrubin-language",lang);}catch(e){}
+    try{localStorage.setItem("bitrubin-language-v2",lang);}catch(e){}
   }
   document.querySelectorAll("[data-lang]").forEach(function(btn){btn.addEventListener("click",function(){setLanguage(btn.getAttribute("data-lang"));});});
   var initial="en";
-  try{if(localStorage.getItem("bitrubin-language")==="de")initial="de";}catch(e){}
+  try{if(localStorage.getItem("bitrubin-language-v2")==="de")initial="de";}catch(e){}
   setLanguage(initial);
 })();
 </script>

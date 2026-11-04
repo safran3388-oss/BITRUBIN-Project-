@@ -1,149 +1,122 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="BITRUBIN – ein vorgeschlagenes digitales Geldsystem auf Basis von Bitcoin. Forschungs- und Prototypenprojekt.">
+  <meta name="description" content="BITRUBIN — a proposed digital monetary protocol built on Bitcoin. Research and prototype project.">
   <meta name="theme-color" content="#0b0d10">
-  <title>BITRUBIN – Built on Bitcoin</title>
+  <title>BITRUBIN — Built on Bitcoin</title>
   <style>
     :root{--bg:#0b0d10;--panel:#12161b;--line:#28303a;--gold:#d8b66a;--gold2:#f0d99b;--muted:#aeb7c2;--white:#f6f4ef;--green:#9fc7a8}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--white);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-    a{color:var(--gold2);text-decoration:none}a:hover{text-decoration:underline}
-    .wrap{width:min(1100px,calc(100% - 40px));margin:auto}
-    header{border-bottom:1px solid rgba(255,255,255,.08);background:rgba(11,13,16,.94)}
-    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.16em;color:var(--white)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:var(--gold2);text-decoration:none}a:hover{text-decoration:underline}.wrap{width:min(1100px,calc(100% - 40px));margin:auto}
+    header{border-bottom:1px solid rgba(255,255,255,.08);background:rgba(11,13,16,.96);position:sticky;top:0;z-index:10}
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.16em;color:var(--white);white-space:nowrap}
     .mark{width:38px;height:38px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:#e32636}
     .currency-letter{position:relative;display:inline-block;font-family:Georgia,serif;font-weight:700;line-height:1;color:currentColor}
     .currency-letter:before,.currency-letter:after{content:"";position:absolute;left:4%;width:92%;height:3px;background:currentColor;border-radius:2px}
-    .currency-letter:before{top:43%}.currency-letter:after{top:59%}
-    .r-symbol{color:#e32636;text-shadow:0 3px 18px rgba(227,38,54,.35)}
-    .p-symbol{color:#f7f5ee;text-shadow:0 3px 18px rgba(255,255,255,.28)}
-    .mark .currency-letter{font-size:23px}
-    .coin-pair{display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap}
+    .currency-letter:before{top:43%}.currency-letter:after{top:59%}.r-symbol{color:#e32636;text-shadow:0 3px 18px rgba(227,38,54,.35)}.p-symbol{color:#f7f5ee;text-shadow:0 3px 18px rgba(255,255,255,.28)}
+    .mark .currency-letter{font-size:23px}.coin-pair{display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap}
     .coin{width:min(205px,38vw);aspect-ratio:1;border-radius:50%;border:2px solid #a88a4e;box-shadow:0 0 0 8px rgba(216,182,106,.06),0 0 55px rgba(216,182,106,.13),inset 0 0 35px rgba(216,182,106,.1);display:grid;place-items:center;position:relative;background:radial-gradient(circle,#26221a 0%,#141414 66%,#0c0d0f 100%)}
-    .coin:before,.coin:after{content:"";position:absolute;inset:10px;border:1px solid rgba(216,182,106,.45);border-radius:50%}
-    .coin:after{inset:20px;border-style:dashed;opacity:.5}
-    .coin .currency-letter{font-size:104px;z-index:1}
-    .coin small{position:absolute;bottom:30px;font-size:9px;letter-spacing:.18em;color:var(--gold);font-weight:700}
-    .pearl-symbol{display:inline-grid;place-items:center;width:48px;height:48px;border:1px solid var(--gold);border-radius:50%;margin-right:12px;vertical-align:middle}
-    .pearl-symbol .currency-letter{font-size:28px}
-    @media(max-width:760px){.coin{width:150px}.coin .currency-letter{font-size:78px}.coin small{bottom:22px;font-size:8px}}
-    nav{display:flex;gap:22px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
-    nav a{color:var(--muted)}
-    .hero{padding:86px 0 76px;background:radial-gradient(ellipse at 75% 35%,rgba(216,182,106,.13),transparent 42%),linear-gradient(180deg,#101419 0%,var(--bg) 100%);border-bottom:1px solid var(--line)}
-    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:50px}
-    .eyebrow{color:var(--gold);font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
-    h1{font-size:clamp(48px,8vw,88px);line-height:.98;letter-spacing:-.055em;margin:20px 0}
-    h1 span{color:var(--gold)}
-    .lead{font-size:clamp(18px,2vw,22px);color:#c8cdd3;max-width:650px}
-    .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 19px;border-radius:5px;font-weight:700;border:1px solid var(--gold);background:var(--gold);color:#17140e}
-    .btn.secondary{background:transparent;color:var(--gold2)}
-    .coin-wrap{display:grid;place-items:center;min-height:280px}
-    .coin{width:min(280px,70vw);aspect-ratio:1;border-radius:50%;border:2px solid #a88a4e;box-shadow:0 0 0 10px rgba(216,182,106,.06),0 0 70px rgba(216,182,106,.15),inset 0 0 40px rgba(216,182,106,.1);display:grid;place-items:center;position:relative;background:radial-gradient(circle,#26221a 0%,#141414 66%,#0c0d0f 100%)}
-    .coin:before,.coin:after{content:"";position:absolute;inset:12px;border:1px solid rgba(216,182,106,.45);border-radius:50%}
-    .coin:after{inset:24px;border-style:dashed;opacity:.5}
-    .coin b{font-family:Georgia,serif;font-size:116px;line-height:1;color:var(--gold2);text-shadow:0 3px 22px rgba(216,182,106,.3)}
-    .coin small{position:absolute;bottom:43px;font-size:10px;letter-spacing:.28em;color:var(--gold);font-weight:700}
+    .coin:before,.coin:after{content:"";position:absolute;inset:10px;border:1px solid rgba(216,182,106,.45);border-radius:50%}.coin:after{inset:20px;border-style:dashed;opacity:.5}
+    .coin .currency-letter{font-size:104px;z-index:1}.coin small{position:absolute;bottom:30px;font-size:9px;letter-spacing:.18em;color:var(--gold);font-weight:700}
+    .lang-switch{display:flex;gap:5px;border:1px solid var(--line);padding:4px;border-radius:6px}.lang-switch button{background:transparent;border:0;color:var(--muted);padding:7px 10px;border-radius:4px;font-weight:800;cursor:pointer}.lang-switch button[aria-pressed="true"]{background:var(--gold);color:#17140e}
+    nav{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--muted)}nav a{color:var(--muted)}
+    .hero{padding:82px 0 72px;background:radial-gradient(ellipse at 75% 35%,rgba(216,182,106,.13),transparent 42%),linear-gradient(180deg,#101419 0%,var(--bg) 100%);border-bottom:1px solid var(--line)}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:50px}.eyebrow{color:var(--gold);font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
+    h1{font-size:clamp(48px,8vw,88px);line-height:.98;letter-spacing:-.055em;margin:20px 0}h1 span{color:var(--gold)}
+    .lead{font-size:clamp(18px,2vw,22px);color:#c8cdd3;max-width:650px}.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 19px;border-radius:5px;font-weight:700;border:1px solid var(--gold);background:var(--gold);color:#17140e}.btn.secondary{background:transparent;color:var(--gold2)}
+    .coin-wrap{display:grid;place-items:center;min-height:280px}.coin{width:min(260px,70vw)}.coin .currency-letter{font-size:116px}
     .notice{margin-top:28px;padding:16px 18px;border:1px solid #705b32;background:rgba(216,182,106,.07);border-radius:6px;color:#e6d6b3;font-size:14px}
-    section{padding:68px 0;border-bottom:1px solid var(--line)}
-    h2{font-size:clamp(28px,4vw,40px);line-height:1.15;margin:8px 0 18px;letter-spacing:-.03em}
-    .sub{color:var(--muted);max-width:720px}
-    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
-    .card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:22px}
-    .card .num{color:var(--gold);font-size:13px;font-weight:800;letter-spacing:.15em}
-    .card h3{margin:8px 0;font-size:19px}
-    .card p{margin:0;color:var(--muted);font-size:14px}
-    .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px}
-    .stat{background:var(--panel);border:1px solid var(--line);padding:20px;border-radius:7px}
-    .stat strong{display:block;color:var(--gold2);font-size:27px}
-    .stat span{color:var(--muted);font-size:13px}
-    .docs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px}
-    .doc{border:1px solid var(--line);border-radius:7px;padding:22px;background:var(--panel)}
-    .doc h3{margin:0 0 7px}.doc p{color:var(--muted);font-size:14px}
+    section{padding:68px 0;border-bottom:1px solid var(--line)}h2{font-size:clamp(28px,4vw,40px);line-height:1.15;margin:8px 0 18px;letter-spacing:-.03em}.sub{color:var(--muted);max-width:780px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:22px}.card .num{color:var(--gold);font-size:13px;font-weight:800;letter-spacing:.15em}.card h3{margin:8px 0;font-size:19px}.card p{margin:0;color:var(--muted);font-size:14px}
+    .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px}.stat{background:var(--panel);border:1px solid var(--line);padding:20px;border-radius:7px}.stat strong{display:block;color:var(--gold2);font-size:27px}.stat span{color:var(--muted);font-size:13px}
+    .docs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px}.doc{border:1px solid var(--line);border-radius:7px;padding:22px;background:var(--panel)}.doc h3{margin:0 0 7px}.doc p{color:var(--muted);font-size:14px}
     .status{display:inline-block;color:var(--green);border:1px solid rgba(159,199,168,.45);border-radius:99px;padding:4px 10px;font-size:12px;font-weight:700}
     footer{padding:30px 0;color:var(--muted);font-size:13px}
-    @media(max-width:760px){.hero{padding:60px 0}.hero-grid{grid-template-columns:1fr;gap:18px}.coin-wrap{min-height:210px}.coin{width:205px}.coin b{font-size:85px}.coin small{bottom:32px}nav{gap:10px;font-size:12px}.cards{grid-template-columns:1fr}.docs{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.nav{height:auto;min-height:70px;align-items:flex-start;padding:16px 0;flex-direction:column}}
+    @media(max-width:820px){.nav{padding:14px 0;flex-wrap:wrap}.nav nav{order:3;width:100%}.hero{padding:58px 0}.hero-grid{grid-template-columns:1fr;gap:18px}.coin-wrap{min-height:210px}.coin{width:205px}.coin .currency-letter{font-size:85px}.coin small{bottom:32px}.cards{grid-template-columns:1fr}.docs{grid-template-columns:1fr}}
+    @media(max-width:480px){.stats{grid-template-columns:1fr}.wrap{width:min(100% - 28px,1100px)}nav{gap:10px;font-size:12px}}
   </style>
 </head>
 <body>
-<header>
-  <div class="wrap nav">
-    <a class="brand" href="#top"><span class="mark" aria-label="BITRUBIN-Zeichen"><span class="currency-letter r-symbol">R</span></span><span>BITRUBIN</span></a>
-    <nav aria-label="Hauptnavigation">
-      <a href="#konzept">Konzept</a><a href="#system">System</a><a href="#token">BRBN & Pearls</a><a href="#whitepaper">Whitepaper</a><a href="#status">Status</a>
-    </nav>
-  </div>
-</header>
+<header><div class="wrap nav">
+  <a class="brand" href="#top"><span class="mark" aria-label="BITRUBIN symbol"><span class="currency-letter r-symbol">R</span></span><span>BITRUBIN</span></a>
+  <nav aria-label="Main navigation">
+    <a href="#concept" data-en="Concept" data-de="Konzept">Concept</a><a href="#system" data-en="System" data-de="System">System</a><a href="#tokens" data-en="BRBN & Pearls" data-de="BRBN & Pearls">BRBN & Pearls</a><a href="#whitepaper" data-en="Whitepaper" data-de="Whitepaper">Whitepaper</a><a href="#status" data-en="Status" data-de="Status">Status</a>
+  </nav>
+  <div class="lang-switch" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="de" aria-pressed="false">DE</button></div>
+</div></header>
 <main id="top">
-  <div class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <div class="eyebrow">Ein Forschungsprojekt auf Bitcoin-Basis</div>
-        <h1>BIT<span>RUBIN</span></h1>
-        <p class="lead">Ein vorgeschlagenes digitales Geldsystem. Eine Blockchain: Bitcoin. Nachvollziehbare Regeln. Unabhängige Prüfung.</p>
-        <div class="actions">
-          <a class="btn" href="WHITEPAPER_DE_v2.2.md">Deutsches Whitepaper</a>
-          <a class="btn secondary" href="#konzept">Projekt entdecken</a>
-        </div>
-        <div class="notice"><strong>Wichtiger Hinweis:</strong> BITRUBIN befindet sich in der Forschungs- und Prototypenphase. Das System ist nicht produktionsreif. Die technische Annahme und Weiterleitung positiver OP_RETURN-Ausgaben ist auf Signet noch nicht nachgewiesen.</div>
-      </div>
-      <div class="coin-wrap" aria-label="BITRUBIN- und BITPEARL-Zeichen">
-        <div class="coin-pair">
-          <div class="coin"><b class="currency-letter r-symbol">R</b><small>BITRUBIN · BRBN</small></div>
-          <div class="coin"><b class="currency-letter p-symbol">P</b><small>BITPEARL · BPRL</small></div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class="hero"><div class="wrap hero-grid"><div>
+    <div class="eyebrow" data-en="A Bitcoin-based research project" data-de="Ein Forschungsprojekt auf Bitcoin-Basis">A Bitcoin-based research project</div>
+    <h1>BIT<span>RUBIN</span></h1>
+    <p class="lead" data-en="A proposed digital monetary protocol. One blockchain: Bitcoin. Transparent rules. Independent verification." data-de="Ein vorgeschlagenes digitales Geldprotokoll. Eine Blockchain: Bitcoin. Nachvollziehbare Regeln. Unabhängige Prüfung.">A proposed digital monetary protocol. One blockchain: Bitcoin. Transparent rules. Independent verification.</p>
+    <div class="actions"><a class="btn" href="WHITEPAPER_EN_v2.2.md" data-en="English whitepaper" data-de="Englisches Whitepaper">English whitepaper</a><a class="btn secondary" href="#concept" data-en="Explore the project" data-de="Projekt entdecken">Explore the project</a></div>
+    <div class="notice"><strong data-en="Important notice:" data-de="Wichtiger Hinweis:">Important notice:</strong> <span data-en="BITRUBIN is in the research and prototype phase and is not production-ready. Acceptance and relay of positive-value OP_RETURN outputs have not yet been demonstrated on Signet." data-de="BITRUBIN befindet sich in der Forschungs- und Prototypenphase und ist nicht produktionsreif. Die Annahme und Weiterleitung positiver OP_RETURN-Ausgaben ist auf Signet noch nicht nachgewiesen.">BITRUBIN is in the research and prototype phase and is not production-ready. Acceptance and relay of positive-value OP_RETURN outputs have not yet been demonstrated on Signet.</span></div>
+  </div><div class="coin-wrap" aria-label="BITRUBIN and BITPEARL symbols"><div class="coin-pair">
+    <div class="coin"><b class="currency-letter r-symbol">R</b><small>BITRUBIN · BRBN</small></div><div class="coin"><b class="currency-letter p-symbol">P</b><small>BITPEARL · BPRL</small></div>
+  </div></div></div></div>
 
-  <section id="konzept"><div class="wrap">
-    <div class="eyebrow">Die Grundidee</div><h2>Bitcoin als einzige Grundlage.</h2>
-    <p class="sub">BITRUBIN soll Bitcoin ergänzen – nicht durch eine zweite Blockchain ersetzen. BRBN und Pearls sollen anhand festgelegter Bitcoin-Transaktionen und eindeutig prüfbarer Regeln abgeleitet werden.</p>
+  <section id="concept"><div class="wrap"><div class="eyebrow" data-en="The core idea" data-de="Die Grundidee">The core idea</div>
+    <h2 data-en="Bitcoin as the only foundation." data-de="Bitcoin als einzige Grundlage.">Bitcoin as the only foundation.</h2>
+    <p class="sub" data-en="BITRUBIN is designed to complement Bitcoin, not replace it with a second blockchain. BRBN and Pearls are intended to be derived from defined Bitcoin transactions and independently verifiable rules." data-de="BITRUBIN soll Bitcoin ergänzen – nicht durch eine zweite Blockchain ersetzen. BRBN und Pearls sollen anhand festgelegter Bitcoin-Transaktionen und eindeutig prüfbarer Regeln abgeleitet werden.">BITRUBIN is designed to complement Bitcoin, not replace it with a second blockchain. BRBN and Pearls are intended to be derived from defined Bitcoin transactions and independently verifiable rules.</p>
     <div class="cards">
-      <article class="card"><div class="num">01 / BITCOIN</div><h3>Eine Blockchain</h3><p>Bitcoin bleibt die einzige Blockchain und die einzige Konsensgrundlage. Keine eigene BITRUBIN-Chain und kein separater Mining- oder Validatorenkonsens.</p></article>
-      <article class="card"><div class="num">02 / PRÜFBARKEIT</div><h3>Eigener Bitcoin-Knoten</h3><p>Teilnehmer sollen Bitcoin-Daten mit einem eigenen Bitcoin-Core-Vollknoten selbst prüfen. Ein zweiter unabhängiger Knoten soll zusätzlich vergleichen.</p></article>
-      <article class="card"><div class="num">03 / REGELN</div><h3>BITRUBIN CORE</h3><p>Eine deterministische Prüf- und Auswertungsschicht soll die Bitcoin-Historie auswerten und daraus den Protokollzustand berechnen.</p></article>
+      <article class="card"><div class="num">01 / BITCOIN</div><h3 data-en="One blockchain" data-de="Eine Blockchain">One blockchain</h3><p data-en="Bitcoin remains the only blockchain and the only consensus foundation. No separate BITRUBIN chain, mining, or validator consensus." data-de="Bitcoin bleibt die einzige Blockchain und die einzige Konsensgrundlage. Keine eigene BITRUBIN-Chain und kein separater Mining- oder Validatorenkonsens.">Bitcoin remains the only blockchain and the only consensus foundation. No separate BITRUBIN chain, mining, or validator consensus.</p></article>
+      <article class="card"><div class="num">02 / VERIFICATION</div><h3 data-en="Your own Bitcoin node" data-de="Eigener Bitcoin-Knoten">Your own Bitcoin node</h3><p data-en="Participants are intended to verify Bitcoin data with their own Bitcoin Core full node. A second independently operated node provides an additional cross-check." data-de="Teilnehmer sollen Bitcoin-Daten mit einem eigenen Bitcoin-Core-Vollknoten selbst prüfen. Ein zweiter unabhängiger Knoten soll zusätzlich vergleichen.">Participants are intended to verify Bitcoin data with their own Bitcoin Core full node. A second independently operated node provides an additional cross-check.</p></article>
+      <article class="card"><div class="num">03 / RULES</div><h3>BITRUBIN CORE</h3><p data-en="A deterministic verification and interpretation layer is intended to evaluate Bitcoin history and calculate protocol state from it." data-de="Eine deterministische Prüf- und Auswertungsschicht soll die Bitcoin-Historie auswerten und daraus den Protokollzustand berechnen.">A deterministic verification and interpretation layer is intended to evaluate Bitcoin history and calculate protocol state from it.</p></article>
     </div>
   </div></section>
 
-  <section id="system"><div class="wrap">
-    <div class="eyebrow">Technischer Ansatz</div><h2>Keine zweite Blockchain.</h2>
-    <p class="sub">Bitcoin entscheidet, welche Blöcke und Transaktionen zur gültigen Bitcoin-Kette gehören. BITRUBIN CORE soll diese Daten unabhängig prüfen und die festgelegten BRBN- und Pearls-Regeln darauf anwenden. Es ersetzt nicht den Bitcoin-Konsens.</p>
+  <section id="system"><div class="wrap"><div class="eyebrow" data-en="Technical approach" data-de="Technischer Ansatz">Technical approach</div>
+    <h2 data-en="No second blockchain." data-de="Keine zweite Blockchain.">No second blockchain.</h2>
+    <p class="sub" data-en="Bitcoin determines which blocks and transactions belong to the valid Bitcoin chain. BITRUBIN CORE is intended to verify this data independently and apply the defined BRBN and Pearls rules. It does not replace Bitcoin consensus." data-de="Bitcoin entscheidet, welche Blöcke und Transaktionen zur gültigen Bitcoin-Kette gehören. BITRUBIN CORE soll diese Daten unabhängig prüfen und die festgelegten BRBN- und Pearls-Regeln darauf anwenden. Es ersetzt nicht den Bitcoin-Konsens.">Bitcoin determines which blocks and transactions belong to the valid Bitcoin chain. BITRUBIN CORE is intended to verify this data independently and apply the defined BRBN and Pearls rules. It does not replace Bitcoin consensus.</p>
   </div></section>
 
-  <section id="token"><div class="wrap">
-    <div class="eyebrow">Vorgeschlagene Token-Regeln</div><h2>BRBN und Pearls</h2><p class="sub"><span class="pearl-symbol" aria-label="Pearls-Zeichen"><span class="currency-letter p-symbol">P</span></span>Das BITRUBIN-Zeichen ist ein vollständiges rubinrotes R mit zwei Querstrichen. Das BITPEARL-Zeichen ist ein vollständiges perlmuttweißes P mit zwei Querstrichen. Beide verwenden dieselbe Gestaltung mit goldener Umrandung.</p>
-    <p class="sub">Die folgenden Zahlen beschreiben den aktuellen Entwurf. Sie bedeuten nicht, dass Token bereits ausgegeben wurden oder verfügbar sind.</p>
+  <section id="tokens"><div class="wrap"><div class="eyebrow" data-en="Proposed token rules" data-de="Vorgeschlagene Token-Regeln">Proposed token rules</div>
+    <h2>BRBN & Pearls</h2>
+    <p class="sub" data-en="The BITRUBIN symbol is a complete ruby-red R with two horizontal bars. The BITPEARL symbol is a complete pearl-white P with two horizontal bars. Both use matching gold edging." data-de="Das BITRUBIN-Zeichen ist ein vollständiges rubinrotes R mit zwei Querstrichen. Das BITPEARL-Zeichen ist ein vollständiges perlmuttweißes P mit zwei Querstrichen. Beide verwenden eine goldene Umrandung."><span class="pearl-symbol" aria-label="Pearls symbol"><span class="currency-letter p-symbol">P</span></span>The BITRUBIN symbol is a complete ruby-red R with two horizontal bars. The BITPEARL symbol is a complete pearl-white P with two horizontal bars. Both use matching gold edging.</p>
+    <p class="sub" data-en="These figures describe the current project proposal. They do not mean that tokens have already been issued or are available." data-de="Diese Zahlen beschreiben den aktuellen Entwurf. Sie bedeuten nicht, dass Token bereits ausgegeben wurden oder verfügbar sind.">These figures describe the current project proposal. They do not mean that tokens have already been issued or are available.</p>
     <div class="stats">
-      <div class="stat"><strong>2.100.000 BRBN</strong><span>Öffentliche Zielmenge</span></div>
-      <div class="stat"><strong>700.000 Pearls</strong><span>Öffentliche Zielmenge</span></div>
-      <div class="stat"><strong>2.205.000 BRBN</strong><span>Geplante Höchstmenge einschließlich Gründer- und Entwicklerzuteilung</span></div>
-      <div class="stat"><strong>735.000 Pearls</strong><span>Geplante Höchstmenge einschließlich Gründer- und Entwicklerzuteilung</span></div>
+      <div class="stat"><strong>2,100,000 BRBN</strong><span data-en="Public target supply" data-de="Öffentliche Zielmenge">Public target supply</span></div>
+      <div class="stat"><strong>700,000 BPRL</strong><span data-en="Public target supply" data-de="Öffentliche Zielmenge">Public target supply</span></div>
+      <div class="stat"><strong>2,205,000 BRBN</strong><span data-en="Planned maximum including founder and developer allocations" data-de="Geplante Höchstmenge einschließlich Gründer- und Entwicklerzuteilung">Planned maximum including founder and developer allocations</span></div>
+      <div class="stat"><strong>735,000 BPRL</strong><span data-en="Planned maximum including founder and developer allocations" data-de="Geplante Höchstmenge einschließlich Gründer- und Entwicklerzuteilung">Planned maximum including founder and developer allocations</span></div>
     </div>
-    <p class="sub" style="margin-top:22px">Beide Einheiten sind im aktuellen Entwurf mit 38 Dezimalstellen vorgesehen. Alle Berechnungen müssen deterministisch mit Ganzzahlen erfolgen. Es ist kein Halving vorgesehen. Die Definitionen 1 BTC = 1 BRBN und 1 Satoshi = 1 Rubini sind reine Recheneinheiten und keine Wert- oder Rückzahlungszusage.</p>
+    <p class="sub" style="margin-top:22px" data-en="BRBN and BPRL use 18 decimal places. 1 BTC = 1 BRBN and 1 satoshi = 1 Rubini are nominal unit definitions only. One Rubini equals 10 billion smallest BRBN units. BPRL is allocated proportionally to valid BRBN issuance across four epochs; the BPRL allocation rate is halved at each epoch. All calculations must use deterministic integer arithmetic." data-de="BRBN und BPRL verwenden 18 Dezimalstellen. 1 BTC = 1 BRBN und 1 Satoshi = 1 Rubini sind ausschließlich nominale Einheitsdefinitionen. Ein Rubini entspricht 10 Milliarden kleinsten BRBN-Einheiten. BPRL wird proportional zur gültigen BRBN-Ausgabe über vier Epochen zugeteilt; die BPRL-Zuteilungsrate halbiert sich mit jeder Epoche. Alle Berechnungen müssen deterministisch mit Ganzzahlen erfolgen.">BRBN and BPRL use 18 decimal places. 1 BTC = 1 BRBN and 1 satoshi = 1 Rubini are nominal unit definitions only. One Rubini equals 10 billion smallest BRBN units. BPRL is allocated proportionally to valid BRBN issuance across four epochs; the BPRL allocation rate is halved at each epoch. All calculations must use deterministic integer arithmetic.</p>
+    <p class="sub" data-en="The unit definitions do not promise market value, backing, redemption, or convertibility." data-de="Die Einheitsdefinitionen versprechen weder einen Marktwert noch eine Deckung, Rückzahlung oder Einlösbarkeit.">The unit definitions do not promise market value, backing, redemption, or convertibility.</p>
   </div></section>
 
-  <section id="whitepaper"><div class="wrap">
-    <div class="eyebrow">Dokumentation</div><h2>Die Whitepaper</h2>
-    <p class="sub">Lies die aktuelle Konzeptfassung auf Deutsch oder Englisch.</p>
+  <section id="whitepaper"><div class="wrap"><div class="eyebrow" data-en="Documentation" data-de="Dokumentation">Documentation</div>
+    <h2 data-en="Whitepapers" data-de="Whitepaper">Whitepapers</h2>
+    <p class="sub" data-en="The linked v2.2 documents are earlier drafts and are being aligned with the latest 18-decimal and four-epoch BPRL rules. The website summary above reflects the current project direction." data-de="Die verlinkten Dokumente v2.2 sind ältere Entwürfe und werden derzeit an die aktuellen Regeln mit 18 Dezimalstellen und vier BPRL-Epochen angepasst. Die Zusammenfassung auf dieser Website entspricht der aktuellen Projektrichtung.">The linked v2.2 documents are earlier drafts and are being aligned with the latest 18-decimal and four-epoch BPRL rules. The website summary above reflects the current project direction.</p>
     <div class="docs">
-      <article class="doc"><h3>Whitepaper v2.2 · Deutsch</h3><p>Grundidee, Bitcoin-Architektur, Ausgabevorschlag, Token-Regeln und offene technische Fragen.</p><a href="WHITEPAPER_DE_v2.2.md">Deutsches Whitepaper öffnen →</a></article>
-      <article class="doc"><h3>Whitepaper v2.2 · English</h3><p>Project concept, Bitcoin architecture, issuance proposal, token rules and open technical questions.</p><a href="WHITEPAPER_EN_v2.2.md">Read the English whitepaper →</a></article>
+      <article class="doc"><h3 data-en="Whitepaper v2.2 · English draft" data-de="Whitepaper v2.2 · Englischer Entwurf">Whitepaper v2.2 · English draft</h3><p data-en="Earlier project draft. Please note the alignment notice above." data-de="Früherer Projektentwurf. Bitte den obigen Aktualisierungshinweis beachten.">Earlier project draft. Please note the alignment notice above.</p><a href="WHITEPAPER_EN_v2.2.md" data-en="Open English draft →" data-de="Englischen Entwurf öffnen →">Open English draft →</a></article>
+      <article class="doc"><h3 data-en="Whitepaper v2.2 · German draft" data-de="Whitepaper v2.2 · Deutscher Entwurf">Whitepaper v2.2 · German draft</h3><p data-en="Earlier project draft. Please note the alignment notice above." data-de="Früherer Projektentwurf. Bitte den obigen Aktualisierungshinweis beachten.">Earlier project draft. Please note the alignment notice above.</p><a href="WHITEPAPER_DE_v2.2.md" data-en="Open German draft →" data-de="Deutschen Entwurf öffnen →">Open German draft →</a></article>
     </div>
   </div></section>
 
-  <section id="status"><div class="wrap">
-    <div class="eyebrow">Offen und transparent</div><h2>Aktueller Entwicklungsstand</h2>
-    <span class="status">Forschung / Prototyp · Nicht produktionsreif</span>
-    <p class="sub" style="margin-top:18px">Ein zentraler nächster Schritt ist der Signet-Test positiver OP_RETURN-Ausgaben. Außerdem müssen die Empfängerregel, der offizielle Startblock, Bestätigungsregeln, Schutz vor doppelter Verarbeitung und das Verhalten bei Chain-Reorganisationen festgelegt und getestet werden.</p>
-    <p><a href="DEVELOPMENT_STATUS.md">Vollständigen Entwicklungsstand lesen →</a> &nbsp;·&nbsp; <a href="ROADMAP.md">Roadmap →</a> &nbsp;·&nbsp; <a href="SECURITY.md">Sicherheit →</a></p>
+  <section id="status"><div class="wrap"><div class="eyebrow" data-en="Open and transparent" data-de="Offen und transparent">Open and transparent</div>
+    <h2 data-en="Current development status" data-de="Aktueller Entwicklungsstand">Current development status</h2>
+    <span class="status" data-en="Research / prototype · Not production-ready" data-de="Forschung / Prototyp · Nicht produktionsreif">Research / prototype · Not production-ready</span>
+    <p class="sub" style="margin-top:18px" data-en="A key next step is testing positive-value OP_RETURN outputs on Signet. The recipient rule, official start block, confirmation requirements, duplicate processing protection, and chain-reorganization handling must also be finalized and tested." data-de="Ein zentraler nächster Schritt ist der Signet-Test positiver OP_RETURN-Ausgaben. Außerdem müssen die Empfängerregel, der offizielle Startblock, Bestätigungsregeln, Schutz vor doppelter Verarbeitung und das Verhalten bei Chain-Reorganisationen festgelegt und getestet werden.">A key next step is testing positive-value OP_RETURN outputs on Signet. The recipient rule, official start block, confirmation requirements, duplicate processing protection, and chain-reorganization handling must also be finalized and tested.</p>
+    <p><a href="DEVELOPMENT_STATUS.md" data-en="Full development status →" data-de="Vollständigen Entwicklungsstand lesen →">Full development status →</a> &nbsp;·&nbsp; <a href="ROADMAP.md" data-en="Roadmap →" data-de="Roadmap →">Roadmap →</a> &nbsp;·&nbsp; <a href="SECURITY.md" data-en="Security →" data-de="Sicherheit →">Security →</a></p>
   </div></section>
 </main>
-<footer><div class="wrap">BITRUBIN · Autor: Faycal Hammouti<br>Experimentelles Forschungsprojekt. Keine Finanzberatung, kein Verkaufsangebot, keine Wert- oder Funktionsgarantie.</div></footer>
+<footer><div class="wrap">BITRUBIN · <span data-en="Author: Faycal Hammouti" data-de="Autor: Faycal Hammouti">Author: Faycal Hammouti</span><br><span data-en="Experimental research project. Not financial advice, not an offer for sale, and no guarantee of value or functionality." data-de="Experimentelles Forschungsprojekt. Keine Finanzberatung, kein Verkaufsangebot, keine Wert- oder Funktionsgarantie.">Experimental research project. Not financial advice, not an offer for sale, and no guarantee of value or functionality.</span></div></footer>
+<script>
+(function(){
+  function setLanguage(lang){
+    document.documentElement.lang=lang;
+    document.querySelectorAll("[data-en][data-de]").forEach(function(el){el.textContent=el.getAttribute("data-"+lang);});
+    document.querySelectorAll("[data-lang]").forEach(function(btn){btn.setAttribute("aria-pressed",String(btn.getAttribute("data-lang")===lang));});
+    try{localStorage.setItem("bitrubin-language",lang);}catch(e){}
+  }
+  document.querySelectorAll("[data-lang]").forEach(function(btn){btn.addEventListener("click",function(){setLanguage(btn.getAttribute("data-lang"));});});
+  var initial="en";
+  try{if(localStorage.getItem("bitrubin-language")==="de")initial="de";}catch(e){}
+  setLanguage(initial);
+})();
+</script>
 </body>
 </html>

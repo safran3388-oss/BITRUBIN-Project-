@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="BITRUBIN – ein vorgeschlagenes digitales Geldsystem auf Basis von Bitcoin. Forschungs- und Prototypenprojekt.">
+  <meta name="theme-color" content="#0b0d10">
+  <title>BITRUBIN – Built on Bitcoin</title>
+  <style>
+    :root{--bg:#0b0d10;--panel:#12161b;--line:#28303a;--gold:#d8b66a;--gold2:#f0d99b;--muted:#aeb7c2;--white:#f6f4ef;--green:#9fc7a8}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--white);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:var(--gold2);text-decoration:none}a:hover{text-decoration:underline}
+    .wrap{width:min(1100px,calc(100% - 40px));margin:auto}
+    header{border-bottom:1px solid rgba(255,255,255,.08);background:rgba(11,13,16,.94)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.16em;color:var(--white)}
+    .mark{width:38px;height:38px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-size:20px}
+    nav{display:flex;gap:22px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+    nav a{color:var(--muted)}
+    .hero{padding:86px 0 76px;background:radial-gradient(ellipse at 75% 35%,rgba(216,182,106,.13),transparent 42%),linear-gradient(180deg,#101419 0%,var(--bg) 100%);border-bottom:1px solid var(--line)}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:50px}
+    .eyebrow{color:var(--gold);font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
+    h1{font-size:clamp(48px,8vw,88px);line-height:.98;letter-spacing:-.055em;margin:20px 0}
+    h1 span{color:var(--gold)}
+    .lead{font-size:clamp(18px,2vw,22px);color:#c8cdd3;max-width:650px}
+    .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 19px;border-radius:5px;font-weight:700;border:1px solid var(--gold);background:var(--gold);color:#17140e}
+    .btn.secondary{background:transparent;color:var(--gold2)}
+    .coin-wrap{display:grid;place-items:center;min-height:280px}
+    .coin{width:min(280px,70vw);aspect-ratio:1;border-radius:50%;border:2px solid #a88a4e;box-shadow:0 0 0 10px rgba(216,182,106,.06),0 0 70px rgba(216,182,106,.15),inset 0 0 40px rgba(216,182,106,.1);display:grid;place-items:center;position:relative;background:radial-gradient(circle,#26221a 0%,#141414 66%,#0c0d0f 100%)}
+    .coin:before,.coin:after{content:"";position:absolute;inset:12px;border:1px solid rgba(216,182,106,.45);border-radius:50%}
+    .coin:after{inset:24px;border-style:dashed;opacity:.5}
+    .coin b{font-family:Georgia,serif;font-size:116px;line-height:1;color:var(--gold2);text-shadow:0 3px 22px rgba(216,182,106,.3)}
+    .coin small{position:absolute;bottom:43px;font-size:10px;letter-spacing:.28em;color:var(--gold);font-weight:700}
+    .notice{margin-top:28px;padding:16px 18px;border:1px solid #705b32;background:rgba(216,182,106,.07);border-radius:6px;color:#e6d6b3;font-size:14px}
+    section{padding:68px 0;border-bottom:1px solid var(--line)}
+    h2{font-size:clamp(28px,4vw,40px);line-height:1.15;margin:8px 0 18px;letter-spacing:-.03em}
+    .sub{color:var(--muted);max-width:720px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:22px}
+    .card .num{color:var(--gold);font-size:13px;font-weight:800;letter-spacing:.15em}
+    .card h3{margin:8px 0;font-size:19px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+    .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px}
+    .stat{background:var(--panel);border:1px solid var(--line);padding:20px;border-radius:7px}
+    .stat strong{display:block;color:var(--gold2);font-size:27px}
+    .stat span{color:var(--muted);font-size:13px}
+    .docs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px}
+    .doc{border:1px solid var(--line);border-radius:7px;padding:22px;background:var(--panel)}
+    .doc h3{margin:0 0 7px}.doc p{color:var(--muted);font-size:14px}
+    .status{display:inline-block;color:var(--green);border:1px solid rgba(159,199,168,.45);border-radius:99px;padding:4px 10px;font-size:12px;font-weight:700}
+    footer{padding:30px 0;color:var(--muted);font-size:13px}
+    @media(max-width:760px){.hero{padding:60px 0}.hero-grid{grid-template-columns:1fr;gap:18px}.coin-wrap{min-height:210px}.coin{width:205px}.coin b{font-size:85px}.coin small{bottom:32px}nav{gap:10px;font-size:12px}.cards{grid-template-columns:1fr}.docs{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.nav{height:auto;min-height:70px;align-items:flex-start;padding:16px 0;flex-direction:column}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><span class="mark">₿</span><span>BITRUBIN</span></a>
+    <nav aria-label="Hauptnavigation">
+      <a href="#konzept">Konzept</a><a href="#system">System</a><a href="#token">BRBN & Pearls</a><a href="#whitepaper">Whitepaper</a><a href="#status">Status</a>
+    </nav>
+  </div>
+</header>
+<main id="top">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Ein Forschungsprojekt auf Bitcoin-Basis</div>
+        <h1>BIT<span>RUBIN</span></h1>
+        <p class="lead">Ein vorgeschlagenes digitales Geldsystem. Eine Blockchain: Bitcoin. Nachvollziehbare Regeln. Unabhängige Prüfung.</p>
+        <div class="actions">
+          <a class="btn" href="WHITEPAPER_DE_v2.2.md">Deutsches Whitepaper</a>
+          <a class="btn secondary" href="#konzept">Projekt entdecken</a>
+        </div>
+        <div class="notice"><strong>Wichtiger Hinweis:</strong> BITRUBIN befindet sich in der Forschungs- und Prototypenphase. Das System ist nicht produktionsreif. Die technische Annahme und Weiterleitung positiver OP_RETURN-Ausgaben ist auf Signet noch nicht nachgewiesen.</div>
+      </div>
+      <div class="coin-wrap" aria-label="BITRUBIN-Münzsymbol">
+        <div class="coin"><b>₿</b><small>BITRUBIN · BRBN</small></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="konzept"><div class="wrap">
+    <div class="eyebrow">Die Grundidee</div><h2>Bitcoin als einzige Grundlage.</h2>
+    <p class="sub">BITRUBIN soll Bitcoin ergänzen – nicht durch eine zweite Blockchain ersetzen. BRBN und Pearls sollen anhand festgelegter Bitcoin-Transaktionen und eindeutig prüfbarer Regeln abgeleitet werden.</p>
+    <div class="cards">
+      <article class="card"><div class="num">01 / BITCOIN</div><h3>Eine Blockchain</h3><p>Bitcoin bleibt die einzige Blockchain und die einzige Konsensgrundlage. Keine eigene BITRUBIN-Chain und kein separater Mining- oder Validatorenkonsens.</p></article>
+      <article class="card"><div class="num">02 / PRÜFBARKEIT</div><h3>Eigener Bitcoin-Knoten</h3><p>Teilnehmer sollen Bitcoin-Daten mit einem eigenen Bitcoin-Core-Vollknoten selbst prüfen. Ein zweiter unabhängiger Knoten soll zusätzlich vergleichen.</p></article>
+      <article class="card"><div class="num">03 / REGELN</div><h3>BITRUBIN CORE</h3><p>Eine deterministische Prüf- und Auswertungsschicht soll die Bitcoin-Historie auswerten und daraus den Protokollzustand berechnen.</p></article>
+    </div>
+  </div></section>
+
+  <section id="system"><div class="wrap">
+    <div class="eyebrow">Technischer Ansatz</div><h2>Keine zweite Blockchain.</h2>
+    <p class="sub">Bitcoin entscheidet, welche Blöcke und Transaktionen zur gültigen Bitcoin-Kette gehören. BITRUBIN CORE soll diese Daten unabhängig prüfen und die festgelegten BRBN- und Pearls-Regeln darauf anwenden. Es ersetzt nicht den Bitcoin-Konsens.</p>
+  </div></section>
+
+  <section id="token"><div class="wrap">
+    <div class="eyebrow">Vorgeschlagene Token-Regeln</div><h2>BRBN und Pearls</h2>
+    <p class="sub">Die folgenden Zahlen beschreiben den aktuellen Entwurf. Sie bedeuten nicht, dass Token bereits ausgegeben wurden oder verfügbar sind.</p>
+    <div class="stats">
+      <div class="stat"><strong>2.100.000 BRBN</strong><span>Öffentliche Zielmenge</span></div>
+      <div class="stat"><strong>700.000 Pearls</strong><span>Öffentliche Zielmenge</span></div>
+      <div class="stat"><strong>2.205.000 BRBN</strong><span>Geplante Höchstmenge einschließlich Gründer- und Entwicklerzuteilung</span></div>
+      <div class="stat"><strong>735.000 Pearls</strong><span>Geplante Höchstmenge einschließlich Gründer- und Entwicklerzuteilung</span></div>
+    </div>
+    <p class="sub" style="margin-top:22px">Beide Einheiten sind im aktuellen Entwurf mit 38 Dezimalstellen vorgesehen. Alle Berechnungen müssen deterministisch mit Ganzzahlen erfolgen. Es ist kein Halving vorgesehen. Die Definitionen 1 BTC = 1 BRBN und 1 Satoshi = 1 Rubini sind reine Recheneinheiten und keine Wert- oder Rückzahlungszusage.</p>
+  </div></section>
+
+  <section id="whitepaper"><div class="wrap">
+    <div class="eyebrow">Dokumentation</div><h2>Die Whitepaper</h2>
+    <p class="sub">Lies die aktuelle Konzeptfassung auf Deutsch oder Englisch.</p>
+    <div class="docs">
+      <article class="doc"><h3>Whitepaper v2.2 · Deutsch</h3><p>Grundidee, Bitcoin-Architektur, Ausgabevorschlag, Token-Regeln und offene technische Fragen.</p><a href="WHITEPAPER_DE_v2.2.md">Deutsches Whitepaper öffnen →</a></article>
+      <article class="doc"><h3>Whitepaper v2.2 · English</h3><p>Project concept, Bitcoin architecture, issuance proposal, token rules and open technical questions.</p><a href="WHITEPAPER_EN_v2.2.md">Read the English whitepaper →</a></article>
+    </div>
+  </div></section>
+
+  <section id="status"><div class="wrap">
+    <div class="eyebrow">Offen und transparent</div><h2>Aktueller Entwicklungsstand</h2>
+    <span class="status">Forschung / Prototyp · Nicht produktionsreif</span>
+    <p class="sub" style="margin-top:18px">Ein zentraler nächster Schritt ist der Signet-Test positiver OP_RETURN-Ausgaben. Außerdem müssen die Empfängerregel, der offizielle Startblock, Bestätigungsregeln, Schutz vor doppelter Verarbeitung und das Verhalten bei Chain-Reorganisationen festgelegt und getestet werden.</p>
+    <p><a href="DEVELOPMENT_STATUS.md">Vollständigen Entwicklungsstand lesen →</a> &nbsp;·&nbsp; <a href="ROADMAP.md">Roadmap →</a> &nbsp;·&nbsp; <a href="SECURITY.md">Sicherheit →</a></p>
+  </div></section>
+</main>
+<footer><div class="wrap">BITRUBIN · Autor: Faycal Hammouti<br>Experimentelles Forschungsprojekt. Keine Finanzberatung, kein Verkaufsangebot, keine Wert- oder Funktionsgarantie.</div></footer>
+</body>
+</html>

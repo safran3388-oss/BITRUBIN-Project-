@@ -13,8 +13,8 @@
     header{border-bottom:1px solid rgba(255,255,255,.08);background:rgba(11,13,16,.96);position:sticky;top:0;z-index:10}
     .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.16em;color:var(--white);white-space:nowrap}
     .mark{width:38px;height:38px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:#e32636}
-    .currency-letter{position:relative;display:inline-block;font-family:Georgia,serif;font-weight:700;line-height:1;color:currentColor}
-    .currency-letter:before,.currency-letter:after{content:"";position:absolute;left:4%;width:92%;height:3px;background:currentColor;border-radius:2px}
+    .currency-letter{position:relative;display:inline-block;font-family:Georgia,serif;font-weight:700;line-height:1;color:currentColor;-webkit-text-stroke:1.2px var(--gold);paint-order:stroke fill}
+    .currency-letter:before,.currency-letter:after{content:"";position:absolute;left:4%;width:92%;height:3px;background:var(--gold);border-radius:2px}
     .currency-letter:before{top:43%}.currency-letter:after{top:59%}.r-symbol{color:#e32636;text-shadow:0 3px 18px rgba(227,38,54,.35)}.p-symbol{color:#f7f5ee;text-shadow:0 3px 18px rgba(255,255,255,.28)}
     .mark .currency-letter{font-size:23px}.coin-pair{display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap}
     .coin{width:min(205px,38vw);aspect-ratio:1;border-radius:50%;border:2px solid #a88a4e;box-shadow:0 0 0 8px rgba(216,182,106,.06),0 0 55px rgba(216,182,106,.13),inset 0 0 35px rgba(216,182,106,.1);display:grid;place-items:center;position:relative;background:radial-gradient(circle,#26221a 0%,#141414 66%,#0c0d0f 100%)}

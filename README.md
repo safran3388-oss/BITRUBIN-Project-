@@ -26,8 +26,8 @@ The idea is to derive a transparent and reproducible BRBN and Pearls ledger from
 
 | Start here | What you will find |
 |---|---|
-| **[German whitepaper v2.2](WHITEPAPER_DE_v2.2.md)** | Das Konzept, die Architektur und die offenen technischen Fragen |
-| **[English whitepaper v2.2](WHITEPAPER_EN_v2.2.md)** | Project concept, architecture and open technical questions |
+| **[German whitepaper v2.3](WHITEPAPER_DE_v2.3.md)** | Aktueller abgestimmter Konzeptstand |
+| **[English whitepaper v2.3](WHITEPAPER_EN_v2.3.md)** | Current aligned project concept |
 | [Development status](DEVELOPMENT_STATUS.md) | What is decided and what still needs to be tested |
 | [Roadmap](ROADMAP.md) | Planned development steps |
 | [Security notes](SECURITY.md) | Security assumptions, risks and safeguards |
@@ -52,9 +52,9 @@ There is no separate BITRUBIN blockchain, no separate mining or validator networ
 | **Maximum planned supply** | **2,205,000** | **735,000** |
 | Decimal places | 38 | 38 |
 
-Pearls are intended to be allocated proportionally to valid BRBN issuance. The current model has no halving. All protocol calculations must use deterministic integer arithmetic.
+BPRL (Pearls) requires valid BRBN issuance and is not issued independently. The public BRBN target is divided into four epochs of 525,000 BRBN; the BPRL allocation rate halves at each successive epoch. Exact integer-rate, rounding and remainder rules must be frozen and tested before activation. All calculations use deterministic integer arithmetic.
 
-**Unit definitions:** 1 BTC = 1 BRBN and 1 satoshi = 1 Rubini are nominal accounting definitions only. They do not promise market value, BTC backing, redemption, or a guaranteed exchange rate. One Rubini equals 10⁻⁸ BRBN.
+**Precision and unit definitions:** BRBN and BPRL use **38 decimal places**. 1 BTC = 1 BRBN and 1 satoshi = 1 Rubini are nominal accounting definitions only; they do not promise market value, BTC backing, redemption, or a guaranteed exchange rate. One Rubini equals 10⁻⁸ BRBN, or 10³⁰ smallest BRBN accounting units at 38 decimals.
 
 These figures and rules describe the current proposal; they do not mean that tokens have already been issued or are available.
 

@@ -16,7 +16,7 @@
     header{border-bottom:1px solid rgba(255,255,255,.08);background:rgba(11,13,16,.94)}
     .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
     .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.16em;color:var(--white)}
-    .mark{width:38px;height:38px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold)}\n    .currency-letter{position:relative;display:inline-block;font-family:Georgia,serif;font-weight:700;line-height:1;color:var(--gold2)}\n    .currency-letter:before,.currency-letter:after{content:"";position:absolute;left:8%;width:84%;height:2px;background:currentColor;border-radius:2px}\n    .currency-letter:before{top:43%}.currency-letter:after{top:59%}\n    .r-symbol{font-size:1em}.p-symbol{font-size:1em}\n    .mark .currency-letter{font-size:23px}\n    .coin .currency-letter{font-size:116px}\n    .coin .currency-letter:before,.coin .currency-letter:after{height:3px}\n    .pearl-symbol{display:inline-grid;place-items:center;width:48px;height:48px;border:1px solid var(--gold);border-radius:50%;margin-right:12px;vertical-align:middle}\n    .pearl-symbol .currency-letter{font-size:28px}\n    @media(max-width:760px){.coin .currency-letter{font-size:85px}}
+    .mark{width:38px;height:38px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold)}\n    .currency-letter{position:relative;display:inline-block;font-family:Georgia,serif;font-weight:700;line-height:1;color:var(--gold2)}\n    .currency-letter:before,.currency-letter:after{content:"";position:absolute;left:8%;width:84%;height:2px;background:currentColor;border-radius:2px}\n    .currency-letter:before{top:43%}.currency-letter:after{top:59%}\n    .r-symbol{font-size:1em}\n    .r-symbol:before,.r-symbol:after{display:none}\n    .p-symbol{font-size:1em}\n    .mark .currency-letter{font-size:23px}\n    .coin .currency-letter{font-size:116px}\n    .coin .currency-letter:before,.coin .currency-letter:after{height:3px}\n    .pearl-symbol{display:inline-grid;place-items:center;width:48px;height:48px;border:1px solid var(--gold);border-radius:50%;margin-right:12px;vertical-align:middle}\n    .pearl-symbol .currency-letter{font-size:28px}\n    @media(max-width:760px){.coin .currency-letter{font-size:85px}}
     nav{display:flex;gap:22px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
     nav a{color:var(--muted)}
     .hero{padding:86px 0 76px;background:radial-gradient(ellipse at 75% 35%,rgba(216,182,106,.13),transparent 42%),linear-gradient(180deg,#101419 0%,var(--bg) 100%);border-bottom:1px solid var(--line)}
@@ -58,7 +58,7 @@
 <body>
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#top"><span class="mark" aria-label="BITRUBIN-Zeichen"><span class="currency-letter r-symbol">R</span></span><span>BITRUBIN</span></a>
+    <a class="brand" href="#top"><span class="mark" aria-label="BITRUBIN-Zeichen"><span class="currency-letter r-symbol">₹</span></span><span>BITRUBIN</span></a>
     <nav aria-label="Hauptnavigation">
       <a href="#konzept">Konzept</a><a href="#system">System</a><a href="#token">BRBN & Pearls</a><a href="#whitepaper">Whitepaper</a><a href="#status">Status</a>
     </nav>
@@ -78,7 +78,7 @@
         <div class="notice"><strong>Wichtiger Hinweis:</strong> BITRUBIN befindet sich in der Forschungs- und Prototypenphase. Das System ist nicht produktionsreif. Die technische Annahme und Weiterleitung positiver OP_RETURN-Ausgaben ist auf Signet noch nicht nachgewiesen.</div>
       </div>
       <div class="coin-wrap" aria-label="BITRUBIN-Münzsymbol">
-        <div class="coin"><b class="currency-letter r-symbol">R</b><small>BITRUBIN · BRBN</small></div>
+        <div class="coin"><b class="currency-letter r-symbol">₹</b><small>BITRUBIN · BRBN</small></div>
       </div>
     </div>
   </div>
@@ -99,7 +99,7 @@
   </div></section>
 
   <section id="token"><div class="wrap">
-    <div class="eyebrow">Vorgeschlagene Token-Regeln</div><h2>BRBN und Pearls</h2><p class="sub"><span class="pearl-symbol" aria-label="Pearls-Zeichen"><span class="currency-letter p-symbol">P</span></span>Das R mit zwei Querstrichen ist das Zeichen für Bitrubin (BRBN). Das P mit zwei Querstrichen ist das Zeichen für Bitpearl / Pearls (BPRL).</p>
+    <div class="eyebrow">Vorgeschlagene Token-Regeln</div><h2>BRBN und Pearls</h2><p class="sub"><span class="pearl-symbol" aria-label="Pearls-Zeichen"><span class="currency-letter p-symbol">P</span></span>Das Rupienzeichen ₹ ist die gestalterische Vorlage für das BITRUBIN-Zeichen (BRBN): ein R mit zwei Querstrichen. Das P mit zwei Querstrichen ist das Zeichen für Bitpearl / Pearls (BPRL).</p>
     <p class="sub">Die folgenden Zahlen beschreiben den aktuellen Entwurf. Sie bedeuten nicht, dass Token bereits ausgegeben wurden oder verfügbar sind.</p>
     <div class="stats">
       <div class="stat"><strong>2.100.000 BRBN</strong><span>Öffentliche Zielmenge</span></div>

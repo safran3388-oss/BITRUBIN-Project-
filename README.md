@@ -46,6 +46,11 @@ The following rules are not yet finalized:
 
 Until these points are resolved and independently tested, this is a proposal, not a live issuance system.
 
+## Whitepapers v2.2
+
+- [Deutsch – Whitepaper v2.2](WHITEPAPER_DE_v2.2.md)
+- [English – Whitepaper v2.2](WHITEPAPER_EN_v2.2.md)
+
 ## Documentation
 
 - [Development status](DEVELOPMENT_STATUS.md)

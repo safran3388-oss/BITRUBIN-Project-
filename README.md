@@ -1,3 +1,5 @@
+[🌐 **BITRUBIN WEBSITE – OPEN THE LIVE WEBSITE**](https://safran3388-oss.github.io/BITRUBIN-Project-/)
+
 # BITRUBIN
 
 [**Open the BITRUBIN website**](https://safran3388-oss.github.io/BITRUBIN-Project-/) · [View the public GitHub repository](https://github.com/safran3388-oss/BITRUBIN-Project-)
@@ -84,6 +86,10 @@ The architecture and proposed token rules are documented. Important technical qu
 For details, see the [development status](DEVELOPMENT_STATUS.md) and [security notes](SECURITY.md).
 
 ---
+
+## Rights and project rules
+
+This repository is public for project visibility and review. **No open-source license is granted.** The project name, branding, documentation and original project materials remain reserved by the author. Public visibility does not mean permission to use BITRUBIN, issue tokens, present modified rules as official, or commercially exploit the project. Any permitted contribution or reuse must be agreed with the author in writing. GitHub's platform terms may still allow users to view and fork a public repository; this notice does not override those terms or applicable law. A formal rights and contribution policy should be finalized before accepting outside contributions.
 
 ## Author
 

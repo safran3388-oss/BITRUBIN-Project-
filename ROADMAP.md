@@ -3,6 +3,8 @@
 This roadmap is provisional. Items are not complete unless evidence and reproducible tests are published.
 
 ## Phase 1 — Freeze the protocol rules
+- Confirm 38-decimal integer representation for BRBN and BPRL, including the Rubini conversion.
+- Freeze the four-epoch BPRL halving schedule, exact integer rates, rounding/remainder handling, and transaction-splitting neutrality.
 - Confirm the recipient rule for each qualifying transaction.
 - Select and document the launch block.
 - Specify exact OP_RETURN eligibility and amount handling.

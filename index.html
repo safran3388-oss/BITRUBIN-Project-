@@ -14,8 +14,8 @@
     .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.16em;color:var(--white);white-space:nowrap}
     .mark{width:38px;height:38px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:#e32636}
     .currency-letter{position:relative;display:inline-block;font-family:Georgia,serif;font-weight:700;line-height:1;color:currentColor;-webkit-text-stroke:1.2px var(--gold);paint-order:stroke fill}
-    .currency-letter::before,.currency-letter::after{content:"";display:block;position:absolute;left:-7%;width:114%;height:5px;background:var(--gold);border:1px solid #fff0c2;border-radius:2px;z-index:5;box-shadow:0 1px 4px rgba(0,0,0,.8);pointer-events:none}
-    .currency-letter::before{top:42%}.currency-letter::after{top:61%}.r-symbol{color:#e32636;text-shadow:0 3px 18px rgba(227,38,54,.35)}.p-symbol{color:#f7f5ee;text-shadow:0 3px 18px rgba(255,255,255,.28)}
+    .currency-letter .bar{display:block;position:absolute;left:-10%;width:120%;height:6px;background:#e2bd68;border:1px solid #fff2c7;border-radius:2px;z-index:10;box-shadow:0 1px 5px #000;pointer-events:none}
+    .currency-letter .bar-one{top:40%}.currency-letter .bar-two{top:61%}.r-symbol{color:#e32636;text-shadow:0 3px 18px rgba(227,38,54,.35)}.p-symbol{color:#f7f5ee;text-shadow:0 3px 18px rgba(255,255,255,.28)}
     .mark .currency-letter{font-size:23px}.coin-pair{display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap}
     .coin{width:min(205px,38vw);aspect-ratio:1;border-radius:50%;border:2px solid #a88a4e;box-shadow:0 0 0 8px rgba(216,182,106,.06),0 0 55px rgba(216,182,106,.13),inset 0 0 35px rgba(216,182,106,.1);display:grid;place-items:center;position:relative;background:radial-gradient(circle,#26221a 0%,#141414 66%,#0c0d0f 100%)}
     .coin:before,.coin:after{content:"";position:absolute;inset:10px;border:1px solid rgba(216,182,106,.45);border-radius:50%}.coin:after{inset:20px;border-style:dashed;opacity:.5}
@@ -41,11 +41,11 @@
 </head>
 <body>
 <header><div class="wrap nav">
-  <a class="brand" href="#top"><span class="mark" aria-label="BITRUBIN symbol"><span class="currency-letter r-symbol">R</span></span><span>BITRUBIN</span></a>
+  <a class="brand" href="#top"><span class="mark" aria-label="BITRUBIN symbol"><span class="currency-letter r-symbol">R<i class="bar bar-one"></i><i class="bar bar-two"></i></span></span><span>BITRUBIN</span></a>
   <nav aria-label="Main navigation">
     <a href="#concept" data-en="Concept" data-de="Konzept">Concept</a><a href="#system" data-en="System" data-de="System">System</a><a href="#tokens" data-en="BRBN & Pearls" data-de="BRBN & Pearls">BRBN & Pearls</a><a href="#whitepaper" data-en="Whitepaper" data-de="Whitepaper">Whitepaper</a><a href="#status" data-en="Status" data-de="Status">Status</a>
   </nav>
-  <div class="lang-switch" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="de" aria-pressed="false">DE</button></div>
+  <div class="lang-switch" aria-label="Language"><button type="button" aria-pressed="true" disabled>EN</button></div>
 </div></header>
 <main id="top">
   <div class="hero"><div class="wrap hero-grid"><div>
@@ -55,7 +55,7 @@
     <div class="actions"><a class="btn" href="WHITEPAPER_EN_v2.2.md" data-en="English whitepaper" data-de="Englisches Whitepaper">English whitepaper</a><a class="btn secondary" href="#concept" data-en="Explore the project" data-de="Projekt entdecken">Explore the project</a></div>
     <div class="notice"><strong data-en="Important notice:" data-de="Wichtiger Hinweis:">Important notice:</strong> <span data-en="BITRUBIN is in the research and prototype phase and is not production-ready. Acceptance and relay of positive-value OP_RETURN outputs have not yet been demonstrated on Signet." data-de="BITRUBIN befindet sich in der Forschungs- und Prototypenphase und ist nicht produktionsreif. Die Annahme und Weiterleitung positiver OP_RETURN-Ausgaben ist auf Signet noch nicht nachgewiesen.">BITRUBIN is in the research and prototype phase and is not production-ready. Acceptance and relay of positive-value OP_RETURN outputs have not yet been demonstrated on Signet.</span></div>
   </div><div class="coin-wrap" aria-label="BITRUBIN and BITPEARL symbols"><div class="coin-pair">
-    <div class="coin"><b class="currency-letter r-symbol">R</b><small>BITRUBIN · BRBN</small></div><div class="coin"><b class="currency-letter p-symbol">P</b><small>BITPEARL · BPRL</small></div>
+    <div class="coin"><b class="currency-letter r-symbol">R<i class="bar bar-one"></i><i class="bar bar-two"></i></b><small>BITRUBIN · BRBN</small></div><div class="coin"><b class="currency-letter p-symbol">P<i class="bar bar-one"></i><i class="bar bar-two"></i></b><small>BITPEARL · BPRL</small></div>
   </div></div></div></div>
 
   <section id="concept"><div class="wrap"><div class="eyebrow" data-en="The core idea" data-de="Die Grundidee">The core idea</div>
@@ -105,18 +105,8 @@
 </main>
 <footer><div class="wrap">BITRUBIN · <span data-en="Author: Faycal Hammouti" data-de="Autor: Faycal Hammouti">Author: Faycal Hammouti</span><br><span data-en="Experimental research project. Not financial advice, not an offer for sale, and no guarantee of value or functionality." data-de="Experimentelles Forschungsprojekt. Keine Finanzberatung, kein Verkaufsangebot, keine Wert- oder Funktionsgarantie.">Experimental research project. Not financial advice, not an offer for sale, and no guarantee of value or functionality.</span></div></footer>
 <script>
-(function(){
-  function setLanguage(lang){
-    document.documentElement.lang=lang;
-    document.querySelectorAll("[data-en][data-de]").forEach(function(el){el.textContent=el.getAttribute("data-"+lang);});
-    document.querySelectorAll("[data-lang]").forEach(function(btn){btn.setAttribute("aria-pressed",String(btn.getAttribute("data-lang")===lang));});
-    try{localStorage.setItem("bitrubin-language-v2",lang);}catch(e){}
-  }
-  document.querySelectorAll("[data-lang]").forEach(function(btn){btn.addEventListener("click",function(){setLanguage(btn.getAttribute("data-lang"));});});
-  var initial="en";
-  try{if(localStorage.getItem("bitrubin-language-v2")==="de")initial="de";}catch(e){}
-  setLanguage(initial);
-})();
+// The public website is English-only. No saved browser language can switch it to German.
+document.documentElement.lang="en";
 </script>
 </body>
 </html>

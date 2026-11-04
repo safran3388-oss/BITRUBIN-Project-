@@ -6,7 +6,8 @@ This roadmap is provisional. Items are not complete unless evidence and reproduc
 - Confirm the recipient rule for each qualifying transaction.
 - Select and document the launch block.
 - Specify exact OP_RETURN eligibility and amount handling.
-- Specify BRBN and Pearls calculation, rounding, and supply-cap behavior.
+- Specify 38-decimal integer arithmetic for BRBN and BPRL.
+- Freeze four-epoch BPRL halving calculations, rounding/remainder rules, transaction-splitting neutrality, and supply-cap behavior.
 - Specify confirmation and reorganization handling.
 
 ## Phase 2 — Bitcoin testnet research

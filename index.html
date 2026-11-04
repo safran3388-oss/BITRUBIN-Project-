@@ -46,14 +46,14 @@
   <nav aria-label="Main navigation">
     <a href="#concept" data-en="Concept" data-de="Konzept">Concept</a><a href="#system" data-en="System" data-de="System">System</a><a href="#tokens" data-en="BRBN & Pearls" data-de="BRBN & Pearls">BRBN & Pearls</a><a href="#whitepaper" data-en="Whitepaper" data-de="Whitepaper">Whitepaper</a><a href="#status" data-en="Status" data-de="Status">Status</a>
   </nav>
-  <div class="lang-switch" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="de" aria-pressed="false">DE</button></div>
+  <div class="lang-switch" aria-label="Language"><button type="button" aria-pressed="true" disabled>EN</button></div>
 </div></header>
 <main id="top">
   <div class="hero"><div class="wrap hero-grid"><div>
     <div class="eyebrow" data-en="A Bitcoin-based research project" data-de="Ein Forschungsprojekt auf Bitcoin-Basis">A Bitcoin-based research project</div>
     <h1>BIT<span>RUBIN</span></h1>
     <p class="lead" data-en="A proposed digital monetary protocol. One blockchain: Bitcoin. Transparent rules. Independent verification." data-de="Ein vorgeschlagenes digitales Geldprotokoll. Eine Blockchain: Bitcoin. Nachvollziehbare Regeln. Unabhängige Prüfung.">A proposed digital monetary protocol. One blockchain: Bitcoin. Transparent rules. Independent verification.</p>
-    <div class="actions"><a class="btn" href="WHITEPAPER_EN_v2.3.md" data-href-en="WHITEPAPER_EN_v2.3.md" data-href-de="WHITEPAPER_DE_v2.3.md" data-en="English whitepaper" data-de="Deutsches Whitepaper">English whitepaper</a><a class="btn secondary" href="#concept" data-en="Explore the project" data-de="Projekt entdecken">Explore the project</a></div>
+    <div class="actions"><a class="btn" href="WHITEPAPER_EN_v2.3.md" data-en="English whitepaper" data-de="Englisches Whitepaper">English whitepaper</a><a class="btn secondary" href="#concept" data-en="Explore the project" data-de="Projekt entdecken">Explore the project</a></div>
     <div class="notice"><strong data-en="Important notice:" data-de="Wichtiger Hinweis:">Important notice:</strong> <span data-en="BITRUBIN is in the research and prototype phase and is not production-ready. Acceptance and relay of positive-value OP_RETURN outputs have not yet been demonstrated on Signet." data-de="BITRUBIN befindet sich in der Forschungs- und Prototypenphase und ist nicht produktionsreif. Die Annahme und Weiterleitung positiver OP_RETURN-Ausgaben ist auf Signet noch nicht nachgewiesen.">BITRUBIN is in the research and prototype phase and is not production-ready. Acceptance and relay of positive-value OP_RETURN outputs have not yet been demonstrated on Signet.</span></div>
   </div><div class="coin-wrap" aria-label="BITRUBIN and BITPEARL symbols"><div class="coin-pair">
     <div class="coin"><b class="currency-letter r-symbol">R<i class="bar bar-one"></i><i class="bar bar-two"></i></b><small>BITRUBIN · BRBN</small></div><div class="coin"><b class="currency-letter p-symbol">P<i class="bar bar-one"></i><i class="bar bar-two"></i></b><small>BITPEARL · BPRL</small></div>
@@ -106,30 +106,8 @@
 </main>
 <footer><div class="wrap"><a href="https://github.com/safran3388-oss/BITRUBIN-Project-">GitHub project repository</a> · <a href="https://safran3388-oss.github.io/BITRUBIN-Project-/">BITRUBIN website</a><br>BITRUBIN · <span data-en="Author: Faycal Hammouti" data-de="Autor: Faycal Hammouti">Author: Faycal Hammouti</span><br><span data-en="Experimental research project. Not financial advice, not an offer for sale, and no guarantee of value or functionality." data-de="Experimentelles Forschungsprojekt. Keine Finanzberatung, kein Verkaufsangebot, keine Wert- oder Funktionsgarantie.">Experimental research project. Not financial advice, not an offer for sale, and no guarantee of value or functionality.</span></div></footer>
 <script>
-  (function () {
-    const buttons = document.querySelectorAll("[data-lang]");
-    const textNodes = document.querySelectorAll("[data-en][data-de]");
-    const links = document.querySelectorAll("[data-href-en][data-href-de]");
-    function setLanguage(language) {
-      const lang = language === "de" ? "de" : "en";
-      document.documentElement.lang = lang;
-      textNodes.forEach(function (node) {
-        node.textContent = node.getAttribute("data-" + lang);
-      });
-      links.forEach(function (link) {
-        link.href = link.getAttribute("data-href-" + lang);
-      });
-      buttons.forEach(function (button) {
-        button.setAttribute("aria-pressed", String(button.getAttribute("data-lang") === lang));
-      });
-    }
-    buttons.forEach(function (button) {
-      button.addEventListener("click", function () {
-        setLanguage(button.getAttribute("data-lang"));
-      });
-    });
-    setLanguage("en");
-  }());
-  </script>
+  // The public website is English-only.
+  document.documentElement.lang = "en";
+</script>
 </body>
 </html>

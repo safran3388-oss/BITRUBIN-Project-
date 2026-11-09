@@ -1,36 +1,47 @@
 # BITRUBIN roadmap
 
-This roadmap is provisional. Items are not complete unless evidence and reproducible tests are published.
+**Status: provisional research and prototype plan.**  
+The project is seeking an experienced Bitcoin developer or team for full technical development/takeover. Items are not complete unless evidence and reproducible tests are published.
 
-## Phase 1 — Freeze the protocol rules
-- Confirm 38-decimal integer representation for BRBN and BPRL, including the Rubini conversion.
-- Freeze the four-epoch BPRL halving schedule, exact integer rates, rounding/remainder handling, and transaction-splitting neutrality.
-- Confirm the recipient rule for each qualifying transaction.
-- Select and document the launch block.
-- Specify exact OP_RETURN eligibility and amount handling.
-- Specify 38-decimal integer arithmetic for BRBN and BPRL.
-- Freeze four-epoch BPRL halving calculations, rounding/remainder rules, transaction-splitting neutrality, and supply-cap behavior.
-- Specify confirmation and reorganization handling.
+## Phase 1 — Confirm protocol specification with the project owner
 
-## Phase 2 — Bitcoin testnet research
-- Test positive-value OP_RETURN transaction construction on Signet.
-- Check local Bitcoin Core acceptance, mempool policy, and peer relay behavior.
+- Confirm the current rule: positive BTC values in qualifying OP_RETURN outputs; no special BRBN marker.
+- Confirm nominal units: 1 BTC = 1 BRBN and 1 satoshi = 1 Rubini.
+- Confirm 38-decimal deterministic integer arithmetic.
+- Implement proportional BPRL issuance: public target 700,000 BPRL against 2,100,000 public BRBN (target ratio 1:3).
+- No halving and no epoch schedule.
+- Specify rounding/remainder handling, transaction-splitting neutrality, and supply-cap behavior.
+- Agree the recipient/wallet attribution rule; do not assume OP_RETURN identifies a recipient.
+- Select and document the official launch block and confirmation policy.
+- Specify event identity, duplicate prevention, malformed transaction handling, and reorganization behavior.
+
+## Phase 2 — Bitcoin Signet research
+
+- Test construction of positive-value OP_RETURN transactions.
+- Check consensus validity separately from standardness policy.
+- Record local Bitcoin Core mempool acceptance and peer relay behavior.
 - Record Bitcoin Core versions, commands, transaction IDs, and observed results.
-- Distinguish consensus validity from standardness and relay policy.
+- Document any restrictions or required alternatives before claiming feasibility.
 
 ## Phase 3 — BITRUBIN CORE prototype
+
 - Read and independently validate Bitcoin chain data through Bitcoin Core.
-- Derive qualifying events deterministically.
+- Detect qualifying OP_RETURN outputs according to the approved specification.
+- Derive BRBN and proportional BPRL events deterministically.
 - Add duplicate prevention and reorganization-safe state recalculation.
-- Compare results from two independent Bitcoin Core nodes.
+- Implement 38-decimal integer arithmetic and exact supply caps.
+- Compare results from two independently operated Bitcoin Core nodes.
 - Publish reproducible automated tests.
 
 ## Phase 4 — Independent review
-- Security review of transaction parsing and state derivation.
-- Arithmetic and supply-cap review.
-- Reproducibility review by independent developers.
-- Resolve all critical findings before considering production use.
+
+- Review transaction parsing, recipient attribution, and state derivation.
+- Review arithmetic, proportional BPRL calculations, rounding, and supply caps.
+- Review chain reorganization and duplicate handling.
+- Resolve critical findings and publish test evidence.
 
 ## Phase 5 — Public test release
-- Publish source, test instructions, known limitations, and test evidence.
-- Do not describe the system as production-ready until the required tests and reviews are complete.
+
+- Publish source, test instructions, known limitations, and reproducible evidence.
+- Keep the system clearly labeled experimental until tests and reviews are complete.
+- Do not announce production readiness or invite real-BTC use before the project owner approves the release.

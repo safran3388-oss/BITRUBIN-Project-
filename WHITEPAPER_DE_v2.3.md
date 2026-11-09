@@ -1,3 +1,7 @@
+> **HISTORICAL DRAFT — SUPERSEDED.** This v2.3 document is retained for reference only. It is not the current BITRUBIN specification. The current project rules are documented in [Whitepaper v2.4 (German)](WHITEPAPER_DE_v2.4.md) and [Whitepaper v2.4 (English)](WHITEPAPER_EN_v2.4.md). The current BPRL rule is proportional issuance with **no halving and no epochs**. Do not implement the superseded epoch/halving text below.
+
+---
+
 # BITRUBIN — Whitepaper v2.3
 **Burn Bitcoin. Create BITRUBIN.**  
 *Ein vorgeschlagenes digitales Geldprotokoll auf Bitcoin-Basis*  

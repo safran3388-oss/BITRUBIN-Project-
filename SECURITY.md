@@ -4,7 +4,9 @@ BITRUBIN is an experimental concept and is not production-ready.
 
 ## Current security assumptions
 - Bitcoin remains the sole blockchain and consensus foundation.
-- BITRUBIN CORE derives token events from Bitcoin transaction and chain data.
+- BITRUBIN CORE is intended to derive BRBN events from qualifying positive-value OP_RETURN outputs in Bitcoin transaction and chain data.
+- BPRL is intended to be issued proportionally to valid BRBN issuance, with no halving or epoch schedule.
+- BRBN and BPRL use 38 decimal places and require deterministic integer arithmetic.
 - Each participant is intended to verify data using their own Bitcoin Core full node.
 - A second independent node is intended as an additional cross-check, not as a replacement for independent verification.
 

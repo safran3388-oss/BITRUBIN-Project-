@@ -1,3 +1,7 @@
+> **HISTORICAL DRAFT — SUPERSEDED.** This v2.2 version is retained only to document an earlier development stage. It is not the current BITRUBIN specification. The current documents are [Whitepaper v2.4 (English)](WHITEPAPER_EN_v2.4.md) and [Whitepaper v2.4 (German)](WHITEPAPER_DE_v2.4.md). Recipient attribution and technical issuance rules are explicitly marked as unresolved in v2.4.
+
+---
+
 # BITRUBIN – Whitepaper v2.2 (Prototype / Research Status)
 
 **Burn Bitcoin. Create BITRUBIN.**  

@@ -1,3 +1,7 @@
+> **HISTORISCHER ENTWURF — ÜBERHOLT.** Diese Version v2.2 bleibt nur zur Dokumentation früherer Entwicklungsstände erhalten. Sie ist nicht die aktuelle BITRUBIN-Spezifikation. Maßgeblich ist [Whitepaper v2.4 (Deutsch)](WHITEPAPER_DE_v2.4.md) bzw. [Whitepaper v2.4 (English)](WHITEPAPER_EN_v2.4.md). Empfängerzuordnung und technische Ausgaberegeln sind in v2.4 ausdrücklich als noch festzulegende Punkte gekennzeichnet.
+
+---
+
 # BITRUBIN – Whitepaper v2.2 (Prototyp / Forschungsstand)
 
 **Burn Bitcoin. Create BITRUBIN.**  

@@ -4,8 +4,8 @@
 **Burn Bitcoin. Create BITRUBIN.**  
 *A proposed digital monetary protocol built on Bitcoin.*
 
-> **DEVELOPERS WANTED — FULL TECHNICAL PROJECT TAKEOVER**  
-> The creator is looking for an experienced Bitcoin developer or team to review, specify, build, test, and take over the technical development of BITRUBIN. [Open a GitHub issue to make contact](https://github.com/safran3388-oss/BITRUBIN-Project-/issues/new).
+> **BITRUBIN IS AVAILABLE FOR A PERMANENT PROJECT HANDOVER**  
+> Founder and creator Faycal Hammouti is seeking a new owner or experienced team to take over the project, its assets and its future direction under agreed written terms. The creator intends to retain the proposed founder allocation of **63,000 BRBN and 21,000 BPRL**. [Contact the project on GitHub](https://github.com/safran3388-oss/BITRUBIN-Project-/issues/new).
 
 > **Research project · Prototype stage · Not production-ready**  
 > Positive-value OP_RETURN acceptance and relay have not yet been demonstrated on Signet. No live BITRUBIN issuance system is being presented.
@@ -70,9 +70,15 @@ The project is in research/prototype stage. The following remain open before act
 
 Older whitepapers v2.2 and v2.3 are retained as historical drafts and are superseded by v2.4.
 
+## Permanent project handover
+
+The creator is seeking to transfer BITRUBIN permanently to a new owner or qualified team. The intended handover may include project leadership, technical development, documentation, website and GitHub repositories, subject to a written agreement that identifies exactly which intellectual-property rights, accounts, assets, liabilities and responsibilities are transferred. The creator intends to retain the proposed founder allocation of **63,000 BRBN and 21,000 BPRL**; this is a proposed protocol allocation, not an issued or guaranteed holding, and must be expressly documented in the handover agreement.
+
+Interested parties should review the project and contact the creator through [GitHub Issues](https://github.com/safran3388-oss/BITRUBIN-Project-/issues/new).
+
 ## Rights and project ownership
 
-BITRUBIN is the creator's project. This repository is public for visibility and technical review; **no open-source license is granted**. Public visibility does not grant permission to issue BRBN/BPRL, change official rules, use the branding, or commercially exploit project materials. Any contribution, license, or transfer of technical responsibility must be agreed with the project owner in writing. A formal contribution and rights agreement should be completed before accepting outside contributions.
+BITRUBIN is the creator's project. This repository is public for visibility and technical review; **no open-source license is granted**. Public visibility does not grant permission to issue BRBN/BPRL, change official rules, use the branding, or commercially exploit project materials. Any contribution, license, or transfer of intellectual-property rights must be agreed with the project owner in writing. A formal contribution and rights agreement should be completed before accepting outside contributions.
 
 ## Author
 

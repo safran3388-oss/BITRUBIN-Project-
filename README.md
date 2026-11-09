@@ -1,98 +1,81 @@
-[🌐 **BITRUBIN WEBSITE – OPEN THE LIVE WEBSITE**](https://safran3388-oss.github.io/BITRUBIN-Project-/)
+[🌐 **BITRUBIN WEBSITE — OPEN THE LIVE WEBSITE**](https://safran3388-oss.github.io/BITRUBIN-Project-/)
 
 # BITRUBIN
+**Burn Bitcoin. Create BITRUBIN.**  
+*A proposed digital monetary protocol built on Bitcoin.*
 
-[**Open the BITRUBIN website**](https://safran3388-oss.github.io/BITRUBIN-Project-/) · [View the public GitHub repository](https://github.com/safran3388-oss/BITRUBIN-Project-)
+> **DEVELOPERS WANTED — FULL TECHNICAL PROJECT TAKEOVER**  
+> The creator is looking for an experienced Bitcoin developer or team to review, specify, build, test, and take over the technical development of BITRUBIN. [Open a GitHub issue to make contact](https://github.com/safran3388-oss/BITRUBIN-Project-/issues/new).
 
-<p align="center">
+> **Research project · Prototype stage · Not production-ready**  
+> Positive-value OP_RETURN acceptance and relay have not yet been demonstrated on Signet. No live BITRUBIN issuance system is being presented.
 
-**BURN BITCOIN. CREATE BITRUBIN.**
+## The central idea: Bitcoin burn → BITRUBIN
 
-*A proposed digital monetary system built on Bitcoin.*
+The current proposal counts positive BTC values in qualifying unspendable OP_RETURN outputs. **No special BRBN marker is required.** From a future official launch block:
 
-</p>
+1. A Bitcoin transaction includes an OP_RETURN output with a positive BTC value.
+2. BITRUBIN CORE reads the confirmed Bitcoin transaction through Bitcoin Core.
+3. CORE checks the output against deterministic protocol rules and prevents duplicate processing.
+4. The qualifying value is accounted for as BRBN: **1 BTC = 1 BRBN** and **1 satoshi = 1 Rubini**.
+5. BPRL (Pearls) is calculated proportionally to valid BRBN issuance.
 
----
+**Important technical limitation:** OP_RETURN outputs are unspendable, but positive-value OP_RETURN outputs may not be accepted as standard or relayed by Bitcoin Core/network policy. This must be tested on Signet. Consensus validity, standardness, mempool acceptance, and peer relay are separate issues. The recipient/wallet attribution rule is also not finalized.
 
-> **Research project · Prototype stage · Not production-ready**
->
-> BITRUBIN is an experimental protocol proposal. Its central positive-value OP_RETURN issuance mechanism has **not yet been proven compatible with Bitcoin Core standardness and relay policy on Signet**. No live issuance system is being presented.
+## Project architecture
 
-## Welcome to BITRUBIN
+- Bitcoin is the only blockchain and consensus foundation.
+- No separate BITRUBIN blockchain, block production, mining, or validator network.
+- BITRUBIN CORE is a deterministic verification and accounting layer over Bitcoin history.
+- Each participant is intended to run their own Bitcoin Core full node; a second independent node provides an additional cross-check.
+- Independent reproducible tests and security review are required before production use.
 
-BITRUBIN (BRBN) is being designed as an independent digital monetary protocol that uses **Bitcoin as its only blockchain and consensus foundation**.
+## BRBN and Pearls — current proposed rules
 
-The idea is to derive a transparent and reproducible BRBN and Pearls ledger from qualifying Bitcoin transactions. The project aims to complement Bitcoin—not replace it with another blockchain.
-
-## Explore the project
-
-| Start here | What you will find |
-|---|---|
-| **[German whitepaper v2.3](WHITEPAPER_DE_v2.3.md)** | Aktueller abgestimmter Konzeptstand |
-| **[English whitepaper v2.3](WHITEPAPER_EN_v2.3.md)** | Current aligned project concept |
-| [Development status](DEVELOPMENT_STATUS.md) | What is decided and what still needs to be tested |
-| [Roadmap](ROADMAP.md) | Planned development steps |
-| [Security notes](SECURITY.md) | Security assumptions, risks and safeguards |
-
-## The idea in a nutshell
-
-- **One blockchain:** Bitcoin is the only blockchain and consensus layer.
-- **Independent verification:** Participants are intended to run their own Bitcoin Core full node.
-- **BITRUBIN CORE:** A deterministic verification and interpretation layer that reads Bitcoin history and derives the BITRUBIN state.
-- **Two units:** BRBN (Bitrubin) and Pearls (BPRL), following defined supply and allocation rules.
-- **Verifiable rules:** Transaction checks, supply limits and calculations must be deterministic and independently reproducible.
-
-There is no separate BITRUBIN blockchain, no separate mining or validator network, and no independent BITRUBIN consensus.
-
-## BRBN and Pearls — proposed supply
-
-|  | BRBN | Pearls |
+|  | BRBN | BPRL (Pearls) |
 |---|---:|---:|
 | Public target supply | 2,100,000 | 700,000 |
-| Founder allocation | 63,000 | 21,000 |
-| Developer allocation | 42,000 | 14,000 |
-| **Maximum planned supply** | **2,205,000** | **735,000** |
+| Additional founder allocation (3%) | 63,000 | 21,000 |
+| Additional developer allocation (2%) | 42,000 | 14,000 |
+| **Planned maximum including allocations** | **2,205,000** | **735,000** |
 | Decimal places | 38 | 38 |
 
-BPRL (Pearls) requires valid BRBN issuance and is not issued independently. The public BRBN target is divided into four epochs of 525,000 BRBN; the BPRL allocation rate halves at each successive epoch. Exact integer-rate, rounding and remainder rules must be frozen and tested before activation. All calculations use deterministic integer arithmetic.
+- BPRL belongs to BITRUBIN and is issued only in connection with valid BRBN.
+- Public BPRL target is proportional to public BRBN: **1 BPRL per 3 BRBN** at full target issuance.
+- **No halving. No epochs.**
+- Founder and developer allocations are additional to public target supplies.
+- The developer allocation is intended to be available from the beginning; custody and transfer terms remain to be documented.
+- These are proposed protocol rules, not proof that tokens have been issued or are available.
 
-**Precision and unit definitions:** BRBN and BPRL use **38 decimal places**. 1 BTC = 1 BRBN and 1 satoshi = 1 Rubini are nominal accounting definitions only; they do not promise market value, BTC backing, redemption, or a guaranteed exchange rate. One Rubini equals 10⁻⁸ BRBN, or 10³⁰ smallest BRBN accounting units at 38 decimals.
+## Current development status
 
-These figures and rules describe the current proposal; they do not mean that tokens have already been issued or are available.
+The project is in research/prototype stage. The following remain open before activation:
 
-## How issuance is proposed to work
+1. Signet testing of positive-value OP_RETURN acceptance and relay.
+2. Final recipient/wallet attribution rule.
+3. Official launch block and confirmation policy.
+4. Duplicate prevention, malformed transaction handling, and reorganization behavior.
+5. Exact 38-decimal integer arithmetic, proportional BPRL rounding/remainder rules, and supply-cap enforcement.
+6. Reproducible tests across two independent Bitcoin Core nodes and independent security review.
 
-The current proposal would count positive BTC values in qualifying unspendable OP_RETURN outputs, beginning only at a future, officially designated BITRUBIN launch block. Earlier Bitcoin transactions would not count retroactively.
+## Project documents
 
-Several essential details remain open, including:
+| Document | Purpose |
+|---|---|
+| [Whitepaper v2.4 — English](WHITEPAPER_EN_v2.4.md) | Current English project rules |
+| [Whitepaper v2.4 — German](WHITEPAPER_DE_v2.4.md) | Aktueller deutscher Projektstand |
+| [Development status](DEVELOPMENT_STATUS.md) | Confirmed direction and unresolved questions |
+| [Roadmap](ROADMAP.md) | Planned technical work |
+| [Security notes](SECURITY.md) | Security assumptions and limitations |
 
-- whether Bitcoin Core accepts and relays positive-value OP_RETURN outputs under its standardness policy;
-- how the recipient is determined, since an OP_RETURN output is unspendable;
-- the official launch block and confirmation policy;
-- duplicate prevention, malformed transactions and chain reorganizations.
+Older whitepapers v2.2 and v2.3 are retained as historical drafts and are superseded by v2.4.
 
-**The Signet test is a necessary next step.** Until the rules have been tested, specified and independently reviewed, the issuance mechanism remains a proposal.
+## Rights and project ownership
 
-## Security and transparency
-
-BITRUBIN relies on Bitcoin's consensus. It does not create a second consensus system and cannot protect users if Bitcoin's own consensus security is fundamentally compromised. The project therefore focuses on independent Bitcoin data verification, deterministic rules, reproducible tests and clear documentation of limitations.
-
-## Project status
-
-**Current status: research and prototype development.**
-
-The architecture and proposed token rules are documented. Important technical questions—especially positive-value OP_RETURN acceptance and relay on Signet—remain unresolved. BITRUBIN is not ready for production use.
-
-For details, see the [development status](DEVELOPMENT_STATUS.md) and [security notes](SECURITY.md).
-
----
-
-## Rights and project rules
-
-This repository is public for project visibility and review. **No open-source license is granted.** The project name, branding, documentation and original project materials remain reserved by the author. Public visibility does not mean permission to use BITRUBIN, issue tokens, present modified rules as official, or commercially exploit the project. Any permitted contribution or reuse must be agreed with the author in writing. GitHub's platform terms may still allow users to view and fork a public repository; this notice does not override those terms or applicable law. A formal rights and contribution policy should be finalized before accepting outside contributions.
+BITRUBIN is the creator's project. This repository is public for visibility and technical review; **no open-source license is granted**. Public visibility does not grant permission to issue BRBN/BPRL, change official rules, use the branding, or commercially exploit project materials. Any contribution, license, or transfer of technical responsibility must be agreed with the project owner in writing. A formal contribution and rights agreement should be completed before accepting outside contributions.
 
 ## Author
 
 **Faycal Hammouti**
 
-*BITRUBIN is an experimental research project. This repository is for technical and informational purposes only. It is not financial advice, an offer to sell tokens, a promise of value, or a guarantee of future functionality.*
+*This experimental project is not financial advice, an offer to sell tokens, or a promise of value, backing, redemption, or future functionality.*

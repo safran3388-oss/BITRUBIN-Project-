@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="BITRUBIN — a proposed digital monetary protocol built on Bitcoin. Research and prototype project.">
+  <meta name="description" content="BITRUBIN: a proposed Bitcoin burn-based protocol using positive-value OP_RETURN outputs. Developers wanted for a full technical project takeover.">
   <meta name="theme-color" content="#0b0d10">
-  <title>BITRUBIN — Built on Bitcoin</title>
+  <title>BITRUBIN — Bitcoin Burn · OP_RETURN · Developers Wanted</title>
   <style>
     :root{--bg:#0b0d10;--panel:#12161b;--line:#28303a;--gold:#d8b66a;--gold2:#f0d99b;--muted:#aeb7c2;--white:#f6f4ef;--green:#9fc7a8}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
@@ -29,14 +29,14 @@
     .lead{font-size:clamp(18px,2vw,22px);color:#c8cdd3;max-width:650px}.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
     .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 19px;border-radius:5px;font-weight:700;border:1px solid var(--gold);background:var(--gold);color:#17140e}.btn.secondary{background:transparent;color:var(--gold2)}
     .coin-wrap{display:grid;place-items:center;min-height:280px}.coin{width:min(260px,70vw)}.coin .currency-letter{font-size:116px}
-    .notice{margin-top:28px;padding:16px 18px;border:1px solid #705b32;background:rgba(216,182,106,.07);border-radius:6px;color:#e6d6b3;font-size:14px}
+    .notice{margin-top:28px;padding:16px 18px;border:1px solid #705b32;background:rgba(216,182,106,.07);border-radius:6px;color:#e6d6b3;font-size:14px}\n    .mechanism{background:linear-gradient(180deg,#17140f,#101419);border:1px solid #705b32;border-radius:10px;padding:26px;margin-top:28px}.mechanism h3{color:var(--gold2);margin:0 0 12px}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}.step{background:#0c0f13;border:1px solid var(--line);border-radius:7px;padding:16px}.step b{display:block;color:var(--gold);font-size:13px;letter-spacing:.08em;margin-bottom:7px}.step p{font-size:14px;color:var(--muted);margin:0}.developer{border:1px solid var(--gold);background:rgba(216,182,106,.08);border-radius:9px;padding:24px;margin-top:24px}.developer h3{margin:0 0 8px;color:var(--gold2)}.developer p,.developer li{color:#d5d0c4}.developer ul{padding-left:20px}.developer .btn{margin-top:10px}
     section{padding:68px 0;border-bottom:1px solid var(--line)}h2{font-size:clamp(28px,4vw,40px);line-height:1.15;margin:8px 0 18px;letter-spacing:-.03em}.sub{color:var(--muted);max-width:780px}
     .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:22px}.card .num{color:var(--gold);font-size:13px;font-weight:800;letter-spacing:.15em}.card h3{margin:8px 0;font-size:19px}.card p{margin:0;color:var(--muted);font-size:14px}
     .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px}.stat{background:var(--panel);border:1px solid var(--line);padding:20px;border-radius:7px}.stat strong{display:block;color:var(--gold2);font-size:27px}.stat span{color:var(--muted);font-size:13px}
     .docs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px}.doc{border:1px solid var(--line);border-radius:7px;padding:22px;background:var(--panel)}.doc h3{margin:0 0 7px}.doc p{color:var(--muted);font-size:14px}
     .status{display:inline-block;color:var(--green);border:1px solid rgba(159,199,168,.45);border-radius:99px;padding:4px 10px;font-size:12px;font-weight:700}
     footer{padding:30px 0;color:var(--muted);font-size:13px}
-    @media(max-width:820px){.nav{padding:14px 0;flex-wrap:wrap}.nav nav{order:3;width:100%}.hero{padding:58px 0}.hero-grid{grid-template-columns:1fr;gap:18px}.coin-wrap{min-height:210px}.coin{width:205px}.coin .currency-letter{font-size:85px}.coin small{bottom:32px}.cards{grid-template-columns:1fr}.docs{grid-template-columns:1fr}}
+    @media(max-width:820px){.nav{padding:14px 0;flex-wrap:wrap}.nav nav{order:3;width:100%}.hero{padding:58px 0}.hero-grid{grid-template-columns:1fr;gap:18px}.coin-wrap{min-height:210px}.coin{width:205px}.coin .currency-letter{font-size:85px}.coin small{bottom:32px}.cards{grid-template-columns:1fr}.docs{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}}
     @media(max-width:480px){.stats{grid-template-columns:1fr}.wrap{width:min(100% - 28px,1100px)}nav{gap:10px;font-size:12px}}
   </style>
 </head>
@@ -44,20 +44,53 @@
 <header><div class="wrap nav">
   <a class="brand" href="#top"><span class="mark" aria-label="BITRUBIN symbol"><span class="currency-letter r-symbol">R<i class="bar bar-one"></i><i class="bar bar-two"></i></span></span><span>BITRUBIN</span></a>
   <nav aria-label="Main navigation">
-    <a href="#concept" data-en="Concept" data-de="Konzept">Concept</a><a href="#system" data-en="System" data-de="System">System</a><a href="#tokens" data-en="BRBN & Pearls" data-de="BRBN & Pearls">BRBN & Pearls</a><a href="#whitepaper" data-en="Whitepaper" data-de="Whitepaper">Whitepaper</a><a href="#status" data-en="Status" data-de="Status">Status</a>
+    <a href="#burn" data-en="Bitcoin Burn" data-de="Bitcoin Burn">Bitcoin Burn</a><a href="#developers" data-en="Developers" data-de="Developers">Developers</a><a href="#concept" data-en="Concept" data-de="Konzept">Concept</a><a href="#system" data-en="System" data-de="System">System</a><a href="#tokens" data-en="BRBN & Pearls" data-de="BRBN & Pearls">BRBN & Pearls</a><a href="#whitepaper" data-en="Whitepaper" data-de="Whitepaper">Whitepaper</a><a href="#status" data-en="Status" data-de="Status">Status</a>
   </nav>
   <div class="lang-switch" aria-label="Language"><button type="button" aria-pressed="true" disabled>EN</button></div>
 </div></header>
 <main id="top">
   <div class="hero"><div class="wrap hero-grid"><div>
-    <div class="eyebrow" data-en="A Bitcoin-based research project" data-de="Ein Forschungsprojekt auf Bitcoin-Basis">A Bitcoin-based research project</div>
+    <div class="eyebrow">BITCOIN BURN · OP_RETURN · DEVELOPER TAKEOVER</div>
     <h1>BIT<span>RUBIN</span></h1>
-    <p class="lead" data-en="A proposed digital monetary protocol. One blockchain: Bitcoin. Transparent rules. Independent verification." data-de="Ein vorgeschlagenes digitales Geldprotokoll. Eine Blockchain: Bitcoin. Nachvollziehbare Regeln. Unabhängige Prüfung.">A proposed digital monetary protocol. One blockchain: Bitcoin. Transparent rules. Independent verification.</p>
-    <div class="actions"><a class="btn" href="WHITEPAPER_EN_v2.3.md" data-en="English whitepaper" data-de="Englisches Whitepaper">English whitepaper</a><a class="btn secondary" href="#concept" data-en="Explore the project" data-de="Projekt entdecken">Explore the project</a></div>
+    <p class="lead"><strong>Burn Bitcoin. Create BITRUBIN.</strong><br>A proposed Bitcoin burn-based protocol: qualifying positive-value OP_RETURN outputs are intended to trigger BRBN and Rubini issuance. One blockchain: Bitcoin.</p>
+    <div class="actions"><a class="btn" href="WHITEPAPER_EN_v2.3.md" data-en="English whitepaper" data-de="Englisches Whitepaper">English whitepaper</a><a class="btn secondary" href="#developers">Developers wanted</a></div>
     <div class="notice"><strong data-en="Important notice:" data-de="Wichtiger Hinweis:">Important notice:</strong> <span data-en="BITRUBIN is in the research and prototype phase and is not production-ready. Acceptance and relay of positive-value OP_RETURN outputs have not yet been demonstrated on Signet." data-de="BITRUBIN befindet sich in der Forschungs- und Prototypenphase und ist nicht produktionsreif. Die Annahme und Weiterleitung positiver OP_RETURN-Ausgaben ist auf Signet noch nicht nachgewiesen.">BITRUBIN is in the research and prototype phase and is not production-ready. Acceptance and relay of positive-value OP_RETURN outputs have not yet been demonstrated on Signet.</span></div>
   </div><div class="coin-wrap" aria-label="BITRUBIN and BITPEARL symbols"><div class="coin-pair">
     <div class="coin"><b class="currency-letter r-symbol">R<i class="bar bar-one"></i><i class="bar bar-two"></i></b><small>BITRUBIN · BRBN</small></div><div class="coin"><b class="currency-letter p-symbol">P<i class="bar bar-one"></i><i class="bar bar-two"></i></b><small>BITPEARL · BPRL</small></div>
   </div></div></div></div>
+
+  <section id="burn"><div class="wrap"><div class="eyebrow">THE CENTRAL MECHANISM</div>
+    <h2>Bitcoin burn through positive-value OP_RETURN</h2>
+    <p class="sub">The defining idea of BITRUBIN is that every qualifying positive-value OP_RETURN output in a Bitcoin transaction counts. No special BITRUBIN marker is required. The output is provably unspendable; the BTC assigned to it is therefore intended to be treated as burned under the protocol rules.</p>
+    <div class="mechanism">
+      <h3>How the proposed mechanism works</h3>
+      <div class="steps">
+        <div class="step"><b>01 · CREATE</b><p>A user broadcasts a Bitcoin transaction containing an OP_RETURN output with a positive BTC value.</p></div>
+        <div class="step"><b>02 · VERIFY</b><p>BITRUBIN CORE reads the confirmed Bitcoin data through Bitcoin Core and checks the qualifying output.</p></div>
+        <div class="step"><b>03 · ACCOUNT</b><p>The protocol applies its deterministic rules to calculate the corresponding BRBN and Rubini issuance.</p></div>
+        <div class="step"><b>04 · PEARLS</b><p>BPRL is calculated proportionally to valid BRBN issuance, according to the fixed project rules.</p></div>
+      </div>
+    </div>
+    <div class="notice"><strong>Technical status:</strong> This is a proposed mechanism, not a production-ready implementation. Positive-value OP_RETURN outputs may face Bitcoin standardness and relay-policy restrictions. Their acceptance, mining, detection, ownership attribution and accounting must be tested and independently reviewed before activation.</div>
+  </div></section>
+
+  <section id="developers"><div class="wrap"><div class="eyebrow">DEVELOPERS WANTED</div>
+    <h2>Looking for a full technical project takeover</h2>
+    <p class="sub">The creator is looking for an experienced Bitcoin developer or development team willing to review, build and take over the technical development of BITRUBIN.</p>
+    <div class="developer">
+      <h3>What the project needs</h3>
+      <ul>
+        <li>Audit the positive-value OP_RETURN burn mechanism and Bitcoin relay/mining constraints.</li>
+        <li>Define and test deterministic transaction detection, ownership attribution and duplicate protection.</li>
+        <li>Build BITRUBIN CORE using Bitcoin Core data as its foundation.</li>
+        <li>Implement BRBN, Rubini and proportional BPRL accounting.</li>
+        <li>Develop wallet balance integration and independent verification tests.</li>
+        <li>Prepare a secure handover and long-term technical maintenance plan.</li>
+      </ul>
+      <p><strong>Interested in taking over the technical development?</strong> Review the repository and open a GitHub issue to introduce yourself and propose a technical review or takeover plan.</p>
+      <a class="btn" href="https://github.com/safran3388-oss/BITRUBIN-Project-/issues">Contact the project on GitHub</a>
+    </div>
+  </div></section>
 
   <section id="concept"><div class="wrap"><div class="eyebrow" data-en="The core idea" data-de="Die Grundidee">The core idea</div>
     <h2 data-en="Bitcoin as the only foundation." data-de="Bitcoin als einzige Grundlage.">Bitcoin as the only foundation.</h2>
@@ -84,13 +117,13 @@
       <div class="stat"><strong>2,205,000 BRBN</strong><span data-en="Planned maximum including founder and developer allocations" data-de="Geplante Höchstmenge einschließlich Gründer- und Entwicklerzuteilung">Planned maximum including founder and developer allocations</span></div>
       <div class="stat"><strong>735,000 BPRL</strong><span data-en="Planned maximum including founder and developer allocations" data-de="Geplante Höchstmenge einschließlich Gründer- und Entwicklerzuteilung">Planned maximum including founder and developer allocations</span></div>
     </div>
-    <p class="sub" style="margin-top:22px" data-en="BRBN and BPRL use 38 decimal places. 1 BTC = 1 BRBN and 1 satoshi = 1 Rubini are nominal unit definitions only. One Rubini equals 10^30 smallest BRBN units. BPRL requires valid BRBN issuance; the public BRBN target is divided into four epochs of 525,000 BRBN and the BPRL allocation rate halves at each successive epoch. Exact integer-rate and rounding rules must be finalized before activation. All calculations use deterministic integer arithmetic." data-de="BRBN und BPRL verwenden 38 Dezimalstellen. 1 BTC = 1 BRBN und 1 Satoshi = 1 Rubini sind ausschließlich nominale Einheitsdefinitionen. Ein Rubini entspricht 10^30 kleinsten BRBN-Recheneinheiten. BPRL setzt eine gültige BRBN-Ausgabe voraus. Die öffentliche BRBN-Zielmenge wird in vier Epochen zu je 525.000 BRBN aufgeteilt; die BPRL-Zuteilungsrate halbiert sich mit jeder folgenden Epoche. Die genauen Ganzzahl- und Rundungsregeln müssen vor Aktivierung festgelegt werden. Alle Berechnungen erfolgen deterministisch mit Ganzzahlen.">BRBN and BPRL use 38 decimal places. 1 BTC = 1 BRBN and 1 satoshi = 1 Rubini are nominal unit definitions only. One Rubini equals 10^30 smallest BRBN units. BPRL requires valid BRBN issuance; the public BRBN target is divided into four epochs of 525,000 BRBN and the BPRL allocation rate halves at each successive epoch. Exact integer-rate and rounding rules must be finalized before activation. All calculations use deterministic integer arithmetic.</p>
+    <p class="sub" style="margin-top:22px" data-en="BRBN and BPRL use 38 decimal places. The project rule is 1 BTC = 1 BRBN and 1 satoshi = 1 Rubini. BPRL is issued proportionally to valid BRBN issuance. The public targets are 2,100,000 BRBN and 700,000 BPRL. There is no halving. Exact transaction qualification, attribution and accounting rules must be implemented and independently tested before activation." data-de="BRBN und BPRL verwenden 38 Dezimalstellen. 1 BTC = 1 BRBN und 1 Satoshi = 1 Rubini sind ausschließlich nominale Einheitsdefinitionen. Ein Rubini entspricht 10^30 kleinsten BRBN-Recheneinheiten. BPRL setzt eine gültige BRBN-Ausgabe voraus. Die öffentliche BRBN-Zielmenge wird in vier Epochen zu je 525.000 BRBN aufgeteilt; die BPRL-Zuteilungsrate halbiert sich mit jeder folgenden Epoche. Die genauen Ganzzahl- und Rundungsregeln müssen vor Aktivierung festgelegt werden. Alle Berechnungen erfolgen deterministisch mit Ganzzahlen.">BRBN and BPRL use 38 decimal places. 1 BTC = 1 BRBN and 1 satoshi = 1 Rubini are nominal unit definitions only. One Rubini equals 10^30 smallest BRBN units. BPRL requires valid BRBN issuance; the public BRBN target is divided into four epochs of 525,000 BRBN and the BPRL allocation rate halves at each successive epoch. Exact integer-rate and rounding rules must be finalized before activation. All calculations use deterministic integer arithmetic.</p>
     <p class="sub" data-en="The unit definitions do not promise market value, backing, redemption, or convertibility." data-de="Die Einheitsdefinitionen versprechen weder einen Marktwert noch eine Deckung, Rückzahlung oder Einlösbarkeit.">The unit definitions do not promise market value, backing, redemption, or convertibility.</p>
   </div></section>
 
   <section id="whitepaper"><div class="wrap"><div class="eyebrow" data-en="Documentation" data-de="Dokumentation">Documentation</div>
     <h2 data-en="Whitepapers" data-de="Whitepaper">Whitepapers</h2>
-    <p class="sub" data-en="The v2.2 documents are retained as historical drafts. The aligned v2.3 whitepapers below describe the current 38-decimal and four-epoch BPRL proposal." data-de="Die Dokumente v2.2 bleiben als historische Entwürfe erhalten. Die abgestimmten Whitepaper v2.3 unten beschreiben den aktuellen Vorschlag mit 38 Dezimalstellen und vier BPRL-Epochen.">The v2.2 documents are retained as historical drafts. The aligned v2.3 whitepapers below describe the current 38-decimal and four-epoch BPRL proposal.</p>
+    <p class="sub" data-en="The whitepapers are project documents and must be checked against the latest fixed BRBN and BPRL rules before implementation. The current project direction specifies 38 decimal places and no halving." data-de="Die Dokumente v2.2 bleiben als historische Entwürfe erhalten. Die abgestimmten Whitepaper v2.3 unten beschreiben den aktuellen Vorschlag mit 38 Dezimalstellen und vier BPRL-Epochen.">The v2.2 documents are retained as historical drafts. The aligned v2.3 whitepapers below describe the current 38-decimal and four-epoch BPRL proposal.</p>
     <div class="docs">
       <article class="doc"><h3 data-en="Whitepaper v2.3 · English" data-de="Whitepaper v2.3 · Englisch">Whitepaper v2.3 · English</h3><p data-en="Current aligned project proposal." data-de="Aktueller, abgestimmter Projektentwurf.">Current aligned project proposal.</p><a href="WHITEPAPER_EN_v2.3.md" data-en="Open English whitepaper →" data-de="Englisches Whitepaper öffnen →">Open English whitepaper →</a></article>
       <article class="doc"><h3 data-en="Whitepaper v2.3 · Deutsch" data-de="Whitepaper v2.3 · Deutsch">Whitepaper v2.3 · Deutsch</h3><p data-en="Current aligned project proposal." data-de="Aktueller, abgestimmter Projektentwurf.">Current aligned project proposal.</p><a href="WHITEPAPER_DE_v2.3.md" data-en="Deutsches Whitepaper öffnen →" data-de="Deutschen Entwurf öffnen →">Deutsches Whitepaper öffnen →</a></article>
@@ -100,7 +133,7 @@
   <section id="status"><div class="wrap"><div class="eyebrow" data-en="Open and transparent" data-de="Offen und transparent">Open and transparent</div>
     <h2 data-en="Current development status" data-de="Aktueller Entwicklungsstand">Current development status</h2>
     <span class="status" data-en="Research / prototype · Not production-ready" data-de="Forschung / Prototyp · Nicht produktionsreif">Research / prototype · Not production-ready</span>
-    <p class="sub" style="margin-top:18px" data-en="A key next step is testing positive-value OP_RETURN outputs on Signet. The recipient rule, official start block, confirmation requirements, duplicate processing protection, and chain-reorganization handling must also be finalized and tested." data-de="Ein zentraler nächster Schritt ist der Signet-Test positiver OP_RETURN-Ausgaben. Außerdem müssen die Empfängerregel, der offizielle Startblock, Bestätigungsregeln, Schutz vor doppelter Verarbeitung und das Verhalten bei Chain-Reorganisationen festgelegt und getestet werden.">A key next step is testing positive-value OP_RETURN outputs on Signet. The recipient rule, official start block, confirmation requirements, duplicate processing protection, and chain-reorganization handling must also be finalized and tested.</p>
+    <p class="sub" style="margin-top:18px" data-en="A key next step is an independent technical review and Signet testing of positive-value OP_RETURN outputs. Bitcoin standardness and relay policy, the recipient attribution rule, official start block, confirmation requirements, duplicate processing protection, and chain-reorganization handling must be finalized and tested." data-de="Ein zentraler nächster Schritt ist der Signet-Test positiver OP_RETURN-Ausgaben. Außerdem müssen die Empfängerregel, der offizielle Startblock, Bestätigungsregeln, Schutz vor doppelter Verarbeitung und das Verhalten bei Chain-Reorganisationen festgelegt und getestet werden.">A key next step is testing positive-value OP_RETURN outputs on Signet. The recipient rule, official start block, confirmation requirements, duplicate processing protection, and chain-reorganization handling must also be finalized and tested.</p>
     <p><a href="DEVELOPMENT_STATUS.md" data-en="Full development status →" data-de="Vollständigen Entwicklungsstand lesen →">Full development status →</a> &nbsp;·&nbsp; <a href="ROADMAP.md" data-en="Roadmap →" data-de="Roadmap →">Roadmap →</a> &nbsp;·&nbsp; <a href="SECURITY.md" data-en="Security →" data-de="Sicherheit →">Security →</a></p>
   </div></section>
 </main>
